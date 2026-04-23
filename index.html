@@ -1339,7 +1339,7 @@
     }
     .history-soft-header {
       background: rgba(28,34,44,0.94) !important;
-      border-color: rgba(96,165,250,0.14) !important;
+      border-color: transparent !important;
     }
     .history-soft-panel {
       background: rgba(30,36,46,0.9) !important;
@@ -1347,6 +1347,89 @@
     }
     .history-soft-cell {
       background: rgba(27,33,43,0.96) !important;
+    }
+    .matchup-surface {
+      background: linear-gradient(180deg, rgba(24,30,43,0.96), rgba(18,23,35,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    }
+    .matchup-surface-soft {
+      background: linear-gradient(180deg, rgba(31,37,51,0.94), rgba(23,29,41,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .matchup-surface-muted {
+      background: linear-gradient(180deg, rgba(27,33,45,0.92), rgba(20,25,36,0.98));
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .page-header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      text-align: center;
+    }
+    .page-header-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      text-align: center;
+    }
+    .page-header-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .page-week-pill {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: 9px;
+    }
+    .page-week-pill #currentWeekLabel {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 20px;
+      line-height: 1;
+      font-size: 0.75rem;
+    }
+    .page-week-pill select {
+      min-height: 22px;
+      min-width: 72px;
+      padding: 0.125rem 1.75rem 0.125rem 0.625rem;
+      border-radius: 9px !important;
+      font-size: 0.75rem !important;
+      line-height: 1rem !important;
+      font-weight: 600 !important;
+      color: var(--text-primary) !important;
+      background-color: rgba(15, 23, 36, 0.88) !important;
+      background-position: right 0.625rem center;
+      background-size: 0.8rem;
+      text-align: left;
+      text-align-last: left;
+      -webkit-text-fill-color: var(--text-primary) !important;
+      box-shadow: none !important;
+    }
+    .page-week-pill > span:first-child {
+      line-height: 1;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+    }
+    #teamTabs,
+    #historyTeamTabs,
+    #faTabs {
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
     }
 
     .roster-block-header {
@@ -1356,7 +1439,7 @@
       gap: 12px;
       padding-bottom: 10px;
       margin-bottom: 16px;
-      border-bottom: 1px solid rgba(71,85,105,0.34);
+      border-bottom: none;
     }
     .roster-block-header-main {
       display: flex;
@@ -2274,11 +2357,34 @@
     #faSortSelect,
     #defRoleSelect {
       color: #f8fbff !important;
-      font-weight: 700 !important;
+      font-weight: 800 !important;
     }
     #matchupsWeekSelect,
     #historyWeekSelect {
-      min-width: 88px;
+      min-width: 72px;
+      text-align: left;
+      text-align-last: left;
+      line-height: 1.1;
+      background: rgba(15, 23, 36, 0.88) !important;
+      -webkit-text-fill-color: #f8fbff !important;
+      color: #f8fbff !important;
+      box-shadow: none !important;
+    }
+    select.text-sm.text-accent,
+    #matchupsWeekSelect.text-sm.text-accent,
+    #historyWeekSelect.text-sm.text-accent {
+      background: rgba(15, 23, 36, 0.88) !important;
+      background-image: none !important;
+      color: #f8fbff !important;
+      -webkit-text-fill-color: #f8fbff !important;
+      -webkit-background-clip: border-box !important;
+      background-clip: border-box !important;
+      text-shadow: none !important;
+    }
+    #faSortSelect {
+      min-width: 188px;
+      font-size: 16px !important;
+      line-height: 1.2;
     }
     .bg-gray-800:hover {
       background: var(--surface-4) !important;
@@ -2441,10 +2547,10 @@
           <span class="nav-label-full">League Analytics</span>
           <span class="nav-label-short">STAT</span>
         </button>
-        <button class="ui2k-navbtn" id="btnTabAI" title="AI Guidance (8)" aria-label="View AI guidance">
+        <button class="ui2k-navbtn" id="btnTabAI" title="League Info (8)" aria-label="View league info">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
-          <span class="nav-label-full">AI Guidance</span>
-          <span class="nav-label-short">AI</span>
+          <span class="nav-label-full">League Info</span>
+          <span class="nav-label-short">INFO</span>
         </button>
       </div>
       
@@ -2462,12 +2568,12 @@
       <div class="flex-1 overflow-hidden relative">
       <!-- Tabs: Teams -->
       <section id="viewTeams" class="h-full flex flex-col p-4 gap-2">
-        <div class="flex items-end justify-between gap-4">
-          <div>
+        <div class="page-header-center">
+          <div class="page-header-copy">
             <div class="text-2xl font-bold text-white tracking-tight">Current Rosters</div>
             <div class="text-sm text-accent" >Current lineup snapshots</div>
           </div>
-          <div class="px-3 py-1.5 bg-gray-800/50 rounded-lg border border-accent/30 ui2k-panel">
+          <div class="page-week-pill bg-gray-800/50 border border-accent/30 ui2k-panel">
             <span class="text-xs text-accent font-mono" id="currentWeekLabel" >Week —</span>
           </div>
         </div>
@@ -2478,7 +2584,7 @@
         <!-- Team roster -->
         <div class="teams-layout grid gap-3 sm:gap-4 lg:gap-5 overflow-hidden flex-1">
           <div class="teams-roster bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel">
-            <div class="p-4 border-b border-accent/20 flex items-center justify-between bg-black/40">
+            <div class="p-4 flex items-center justify-between bg-black/40">
               <div class="flex items-center gap-3">
                 <div class="madden-status-bar h-10"></div>
                 <div>
@@ -2495,7 +2601,7 @@
           </div>
 
           <div class="teams-compare bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel">
-            <div class="p-4 border-b border-accent/20 bg-black/40">
+            <div class="p-4 bg-black/40">
               <div class="flex items-center gap-3">
                 <div class="madden-status-bar h-10"></div>
                 <div>
@@ -2510,11 +2616,11 @@
 
       <!-- Tabs: Matchups -->
       <section id="viewMatchups" class="h-full hidden flex flex-col p-4 gap-2">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
+        <div class="page-header-center">
+          <div class="page-header-copy">
             <div class="text-2xl font-bold text-white tracking-tight">Weekly Matchups</div>
           </div>
-          <div class="flex items-center gap-2 bg-gray-800/50 rounded-lg px-3 py-1.5 border border-accent/30 ui2k-panel w-full sm:w-auto justify-between sm:justify-start">
+          <div class="page-week-pill flex items-center gap-2 bg-gray-800/50 border border-accent/30 ui2k-panel w-full sm:w-auto justify-between sm:justify-start">
             <span class="text-[10px] font-semibold text-accent uppercase tracking-wider" >Week</span>
             <select id="matchupsWeekSelect" class="bg-transparent border-none text-sm text-accent font-medium focus:outline-none cursor-pointer"></select>
           </div>
@@ -2524,17 +2630,16 @@
 
       <!-- Tabs: Free Agents -->
       <section id="viewFA" class="h-full hidden flex flex-col p-4 gap-2">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
+        <div class="page-header-center">
+          <div class="page-header-copy">
             <div class="text-2xl font-bold text-white tracking-tight">Free Agents</div>
           </div>
-          <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+          <div class="page-header-controls">
             <input id="faSearch" placeholder="Search free agents…" class="rounded-lg px-3 py-2 text-sm w-full sm:w-56" style="background:var(--surface-2);border:1px solid var(--glass-border);color:var(--text-primary);font-family:var(--font-body)" />
-            <label class="flex items-center gap-2 text-xs rounded-lg px-3 py-2 w-full sm:w-auto" style="background:var(--surface-2);border:1px solid var(--glass-border);color:var(--text-secondary)">
-              <span class="whitespace-nowrap">Sort by</span>
-              <select id="faSortSelect" class="bg-transparent border-none text-xs sm:text-sm text-gray-100 focus:outline-none cursor-pointer" style="font-family:var(--font-body)">
+            <label class="flex items-center text-xs rounded-lg px-3 py-2 w-full sm:w-auto" style="background:var(--surface-2);border:1px solid var(--glass-border);color:var(--text-secondary)">
+              <select id="faSortSelect" aria-label="Sort free agents" class="bg-transparent border-none text-xs sm:text-sm text-gray-100 focus:outline-none cursor-pointer w-full" style="font-family:var(--font-body)">
                 <option value="value" class="bg-gray-900">Highest Value</option>
-                <option value="total" class="bg-gray-900">Highest Total Points</option>
+                <option value="points" class="bg-gray-900">Highest Total Points</option>
                 <option value="ppg" class="bg-gray-900">Highest Avg PPG</option>
               </select>
             </label>
@@ -2565,16 +2670,16 @@
 
       <!-- Tabs: NFL Defense -->
       <section id="viewDef" class="h-full hidden flex flex-col p-4 gap-2 overflow-hidden">
-        <div class="flex items-end justify-between gap-4 shrink-0">
-          <div>
+        <div class="page-header-center shrink-0">
+          <div class="page-header-copy">
             <div class="text-2xl font-bold text-white">NFL Defenses</div>
             <div class="text-sm text-accent" >Defensive rankings and matchup analysis: Lower = Better</div>
           </div>
         </div>
 
-        <div class="flex gap-2 pb-2 shrink-0" id="defTabs">
+        <div class="flex gap-2 pb-2 shrink-0 justify-center" id="defTabs">
           <button class="px-4 py-2 rounded-xl font-bold madden-tab madden-tab-active" id="defTabAFC">AFC</button>
-          <button class="px-4 py-2 rounded-xl font-bold madden-tab text-gray-300" id="defTabNFC">NFC</button>
+          <button class="px-4 py-2 rounded-xl font-bold madden-tab text-white" id="defTabNFC">NFC</button>
         </div>
 
         <div class="flex-1 overflow-y-auto pr-2 pb-6">
@@ -2585,8 +2690,8 @@
 
       <!-- Tabs: League Analytics -->
       <section id="viewInsights" class="h-full flex flex-col p-4 gap-2 hidden overflow-hidden">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 shrink-0">
-          <div>
+        <div class="page-header-center shrink-0">
+          <div class="page-header-copy">
             <div class="text-2xl font-bold text-white flex items-center gap-2"><span></span> League Analytics</div>
           </div>
           <button id="btnInsightsExport" class="px-3 py-2 rounded-lg text-sm font-semibold w-full sm:w-auto flex items-center gap-2 justify-center transition-all" style="background:var(--surface-3);color:var(--text-primary);border:1px solid var(--glass-border)">
@@ -2813,11 +2918,11 @@
       <section id="viewAI" class="h-full hidden flex flex-col p-4 gap-2 overflow-hidden">
         <div class="flex-1 min-h-0">
           <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden h-full flex flex-col">
-            <div class="p-4 border-b border-gray-800 flex flex-col sm:flex-row sm:items-center gap-3 sm:justify-between">
-              <div>
-                <div class="text-white font-bold flex items-center gap-2">AI League Guidance</div>
+            <div class="p-4 border-b border-gray-800 page-header-center">
+              <div class="page-header-copy">
+                <div class="text-white font-bold flex items-center gap-2">League Info</div>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="page-header-controls">
                 <button id="aiInsightsRefreshNews" class="px-3 py-1.5 rounded-lg text-xs font-semibold madden-tab">Refresh News</button>
                 <button id="aiInsightsRun" class="px-3 py-1.5 rounded-lg text-xs font-semibold madden-tab madden-tab-active">Generate Full AI Report</button>
               </div>
@@ -2848,14 +2953,14 @@
 
       <!-- Tabs: History -->
       <section id="viewHistory" class="h-full flex flex-col p-4 gap-2 hidden">
-        <div class="flex items-end justify-between gap-4">
-          <div>
+        <div class="page-header-center">
+          <div class="page-header-copy">
             <div class="text-2xl font-bold text-white tracking-tight" id="historyHeaderTitle">League History</div>
             <div class="text-sm text-accent" id="historyHeaderSubtitle" >Weekly lineup snapshots</div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="page-header-controls">
             <button id="optSettingsToggle" class="hidden px-3 py-1.5 rounded-lg text-xs font-semibold madden-tab">Settings</button>
-            <div class="flex items-center gap-2 bg-gray-800/50 rounded-lg px-3 py-1.5 border border-accent/30 ui2k-panel">
+            <div class="page-week-pill flex items-center gap-2 bg-gray-800/50 border border-accent/30 ui2k-panel">
               <span class="text-[10px] font-semibold text-accent uppercase tracking-wider" >Week</span>
               <select id="historyWeekSelect" class="bg-transparent border-none text-sm text-accent font-medium focus:outline-none cursor-pointer"></select>
             </div>
@@ -2949,9 +3054,9 @@
         </div>
 
         <!-- Team roster for history -->
-        <div class="grid grid-cols-1 xl:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 overflow-hidden flex-1" id="historyMainContent">
-          <div class="xl:col-span-2 bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel history-soft-shell">
-            <div class="p-4 border-b border-accent/20 flex items-center justify-between bg-black/40 history-soft-header">
+        <div class="teams-layout grid gap-3 sm:gap-4 lg:gap-5 overflow-hidden flex-1" id="historyMainContent">
+          <div class="teams-roster bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel history-soft-shell">
+            <div class="p-4 flex items-center justify-between bg-black/40 history-soft-header">
               <div class="flex items-center gap-3">
                 <div class="madden-status-bar h-10"></div>
                 <div>
@@ -2964,13 +3069,13 @@
             <div class="flex-1 overflow-y-auto overflow-x-hidden p-4" id="historyRosterList"></div>
           </div>
 
-          <div class="bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel history-soft-shell">
-            <div class="p-4 border-b border-accent/20 bg-black/40 history-soft-header">
+          <div class="teams-compare bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel history-soft-shell">
+            <div class="p-4 bg-black/40 history-soft-header">
               <div class="flex items-center gap-3">
                 <div class="madden-status-bar h-10"></div>
                 <div>
                   <div class="text-white font-bold uppercase tracking-wide" >Team Comparison</div>
-                  <div class="text-xs text-accent/70 font-mono" id="historyCompareSubtitle">Week — projected totals by position</div>
+                  <div class="text-xs text-accent/70 font-mono" id="historyCompareSubtitle"></div>
                 </div>
               </div>
             </div>
@@ -8359,7 +8464,7 @@ getPlayerDeltaRank: function(pid) {
       for (var w = 1; w <= maxWeek; w++) {
         var opt = document.createElement("option");
         opt.value = String(w);
-        opt.textContent = "Week " + w;
+        opt.textContent = String(w);
         if (w === self.ui.selectedWeek) opt.selected = true;
         selectEl.appendChild(opt);
       }
@@ -8537,7 +8642,7 @@ getPlayerDeltaRank: function(pid) {
       this.dom.defTabAFC.onclick = function() { 
         self.ui.selectedConference = "AFC"; 
         if (self.dom.defTabAFC) self.dom.defTabAFC.className = "px-4 py-2 rounded-xl bg-accent text-black font-bold";
-        if (self.dom.defTabNFC) self.dom.defTabNFC.className = "px-4 py-2 rounded-xl bg-gray-900 border border-gray-800 text-gray-300 hover:bg-gray-800 font-bold";
+        if (self.dom.defTabNFC) self.dom.defTabNFC.className = "px-4 py-2 rounded-xl bg-gray-900 border border-gray-800 text-white hover:bg-gray-800 font-bold";
         self.renderDefenses(); 
       };
     }
@@ -8545,7 +8650,7 @@ getPlayerDeltaRank: function(pid) {
       this.dom.defTabNFC.onclick = function() { 
         self.ui.selectedConference = "NFC"; 
         if (self.dom.defTabNFC) self.dom.defTabNFC.className = "px-4 py-2 rounded-xl bg-accent text-black font-bold";
-        if (self.dom.defTabAFC) self.dom.defTabAFC.className = "px-4 py-2 rounded-xl bg-gray-900 border border-gray-800 text-gray-300 hover:bg-gray-800 font-bold";
+        if (self.dom.defTabAFC) self.dom.defTabAFC.className = "px-4 py-2 rounded-xl bg-gray-900 border border-gray-800 text-white hover:bg-gray-800 font-bold";
         self.renderDefenses(); 
       };
     }
@@ -9453,7 +9558,7 @@ getPlayerDeltaRank: function(pid) {
     // History header (H = actual roster, O = optimal lineup)
     if (this.dom.historyHeaderTitle) {
       if (this.ui.currentView === "optimal") {
-        this.dom.historyHeaderTitle.textContent = "Optimal Lineups";
+        this.dom.historyHeaderTitle.textContent = "Optimal Lineup";
         if (this.dom.historyHeaderSubtitle) this.dom.historyHeaderSubtitle.textContent = "Weighted lineup suggestions by week";
         this.ui.historyMode = "best";
       } else if (this.ui.currentView === "history") {
@@ -9538,7 +9643,7 @@ getPlayerDeltaRank: function(pid) {
       var active = String(r.roster_id) === String(self.ui.selectedRosterId);
       btn.className = active
         ? "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab madden-tab-active"
-        : "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab text-gray-300";
+        : "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab text-white";
       btn.textContent = name;
       btn.onclick = function() {
         self.ui.selectedRosterId = r.roster_id;
@@ -10208,10 +10313,10 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
         '<div class="comparison-table-wrap ' + tableTopClass + ' max-h-[250px] border border-gray-800 rounded-lg">' +
           '<table class="comparison-table w-full text-[9.5px] table-fixed tabular-nums">' +
             '<thead class="text-[9px] uppercase text-gray-400 sticky top-0 z-10">' +
-              '<tr class="bg-gray-950">' +
-                '<th class="text-left px-2 py-1.5 w-[33%] bg-gray-950">Team</th>' +
+              '<tr class="history-soft-cell">' +
+                '<th class="text-center px-2 py-1.5 w-[33%] history-soft-cell">Team</th>' +
                 headerCells +
-                '<th class="text-center px-2 py-1.5 w-[11%] hidden md:table-cell bg-gray-950">TOT</th>' +
+                '<th class="text-center px-2 py-1.5 w-[11%] hidden md:table-cell history-soft-cell">TOT</th>' +
               '</tr>' +
             '</thead>' +
             '<tbody class="divide-y divide-gray-800/50"></tbody>' +
@@ -10411,7 +10516,7 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
       var btn = document.createElement("button");
       btn.className = active
         ? "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab madden-tab-active"
-        : "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab text-gray-300";
+        : "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab text-white";
       btn.textContent = t.label;
       btn.onclick = function() {
         self.ui.selectedFA = t.id;
@@ -10503,7 +10608,7 @@ renderFA: function() {
         });
       });
 
-      // 5. Filter the SORTED list to show only Free Agents
+      // 5. Filter to show only Free Agents
       var candidates = allPlayers.filter(function(p) {
         if (!p) return false;
         var notRostered = !rostered.has(String(p.player_id));
@@ -10520,6 +10625,29 @@ renderFA: function() {
           return name.indexOf(searchTerm) >= 0 || team.indexOf(searchTerm) >= 0 || pos.indexOf(searchTerm) >= 0;
         }
         return true;
+      });
+
+      candidates.sort(function(a, b) {
+        var aId = String(a.player_id);
+        var bId = String(b.player_id);
+        var aVal = self.getPlayerValue(aId);
+        var bVal = self.getPlayerValue(bId);
+        var aTotal = Number(totals[aId] || 0);
+        var bTotal = Number(totals[bId] || 0);
+        var aEff = self.getPlayerEfficiencyMetrics(aId) || {};
+        var bEff = self.getPlayerEfficiencyMetrics(bId) || {};
+        var aGames = Math.max(1, Number(aEff.games || 0));
+        var bGames = Math.max(1, Number(bEff.games || 0));
+        var aPpg = aTotal / aGames;
+        var bPpg = bTotal / bGames;
+        var mode = String((self.dom.faSortSelect && self.dom.faSortSelect.value) || self.ui.faSortMode || "value");
+        var primary = 0;
+        if (mode === "points") primary = bTotal - aTotal;
+        else if (mode === "ppg") primary = bPpg - aPpg;
+        else primary = Number((bVal && bVal.score) || 0) - Number((aVal && aVal.score) || 0);
+        if (primary) return primary;
+        if (bTotal !== aTotal) return bTotal - aTotal;
+        return String((a.last_name || "") + " " + (a.first_name || "")).localeCompare(String((b.last_name || "") + " " + (b.first_name || "")));
       });
 
       // 6. Limit list size for performance
@@ -10559,7 +10687,7 @@ renderFA: function() {
 
         var item = {
           pid: pid,
-          slot: "FA",
+          slot: (p.position || disp.pos || "FA"),
           isStarter: false,
           player: p,
           disp: disp,
@@ -10578,7 +10706,7 @@ renderFA: function() {
           isOut: false
         };
 
-        var card = self.buildPlayerCardElement(item, { showSlot: false });
+        var card = self.buildPlayerCardElement(item, { showSlot: true });
         gridContainer.appendChild(card);
       });
 
@@ -11219,25 +11347,24 @@ renderFA: function() {
       var teams = divisions[divName];
       
       var divCard = document.createElement("div");
-      divCard.className = "bg-gray-900 border border-gray-800 rounded-2xl";
+      divCard.className = "matchup-surface rounded-2xl";
       
       var header = document.createElement("div");
-      header.className = "p-4 border-b border-gray-800 bg-gray-950 rounded-t-2xl";
+      header.className = "p-4 border-b border-white/8 matchup-surface-soft rounded-t-2xl";
       header.innerHTML =
-        '<div class="flex items-center gap-3">' +
-          '<div>' +
-            '<div class="text-white font-bold">' + divName + '</div>' +
-          '</div>' +
+        '<div>' +
+          '<div class="text-white font-bold">' + divName + '</div>' +
+          '<div class="text-xs text-gray-400 font-mono">Defensive rankings and matchup analysis: Lower = Better</div>' +
         '</div>';
       divCard.appendChild(header);
 
       var teamList = document.createElement("div");
-      teamList.className = "divide-y divide-gray-800";
+      teamList.className = "p-3 space-y-3";
 
       teams.forEach(function(teamAbbr) {
         var stats = statsLookup[teamAbbr] || {};
         var teamRow = document.createElement("div");
-        teamRow.className = "p-4 hover:bg-gray-950/50";
+        teamRow.className = "matchup-surface-soft rounded-xl p-4";
 
         // Color coding for rankings (1-8 green, 9-16 yellow, 17-32 red for 32 teams)
         var getRankColor = function(rank) {
@@ -11257,13 +11384,13 @@ renderFA: function() {
         
         // With real NFL.com data, we always have separate pass/rush stats
         yardsSection = 
-          '<div class="bg-gray-950 rounded-lg p-2 text-center">' +
+          '<div class="matchup-surface-soft rounded-lg p-2 text-center">' +
             '<div class="text-[10px] text-gray-500 uppercase font-mono flex items-center justify-center gap-1">' +
               'Pass Yds <span class="' + passColor + ' px-1 rounded text-[9px]">#' + (stats.passRank || "—") + '</span>' +
             '</div>' +
             '<div class="text-lg font-bold text-white">' + (stats.passYdsPerGame || "—") + '</div>' +
           '</div>' +
-          '<div class="bg-gray-950 rounded-lg p-2 text-center">' +
+          '<div class="matchup-surface-soft rounded-lg p-2 text-center">' +
             '<div class="text-[10px] text-gray-500 uppercase font-mono flex items-center justify-center gap-1">' +
               'Rush Yds <span class="' + rushColor + ' px-1 rounded text-[9px]">#' + (stats.rushRank || "—") + '</span>' +
             '</div>' +
@@ -11275,16 +11402,16 @@ renderFA: function() {
         if (stats.sacks || stats.interceptions) {
           extraStats = 
             '<div class="mt-2 grid grid-cols-3 gap-2">' +
-              '<div class="bg-gray-950/50 rounded p-1.5 text-center">' +
-                '<div class="text-[9px] text-gray-600 uppercase">Sacks</div>' +
+              '<div class="matchup-surface-muted rounded p-1.5 text-center">' +
+                '<div class="text-[9px] text-gray-500 uppercase">Sacks</div>' +
                 '<div class="text-sm font-bold text-accent">' + (stats.sacks || 0) + '</div>' +
               '</div>' +
-              '<div class="bg-gray-950/50 rounded p-1.5 text-center">' +
-                '<div class="text-[9px] text-gray-600 uppercase">INTs</div>' +
+              '<div class="matchup-surface-muted rounded p-1.5 text-center">' +
+                '<div class="text-[9px] text-gray-500 uppercase">INTs</div>' +
                 '<div class="text-sm font-bold text-accent">' + (stats.interceptions || 0) + '</div>' +
               '</div>' +
-              '<div class="bg-gray-950/50 rounded p-1.5 text-center">' +
-                '<div class="text-[9px] text-gray-600 uppercase">TDs Allow</div>' +
+              '<div class="matchup-surface-muted rounded p-1.5 text-center">' +
+                '<div class="text-[9px] text-gray-500 uppercase">TDs Allow</div>' +
                 '<div class="text-sm font-bold text-red-400">' + ((stats.passTD || 0) + (stats.rushTD || 0)) + '</div>' +
               '</div>' +
             '</div>';
@@ -11293,25 +11420,25 @@ renderFA: function() {
         teamRow.innerHTML = 
           '<div class="flex items-center justify-between gap-4">' +
             '<div class="flex items-center gap-3">' +
-              '<img src="' + self.teamLogoUrl(teamAbbr) + '" class="w-10 h-10 rounded-lg bg-gray-800" onerror="this.style.display=\'none\'" />' +
+              '<img src="' + self.teamLogoUrl(teamAbbr) + '" class="w-10 h-10 rounded-lg bg-gray-800/80" onerror="this.style.display=\'none\'" />' +
               '<div>' +
                 '<div class="font-bold text-white">' + (stats.name || teamAbbr) + '</div>' +
-                '<div class="text-xs text-gray-500 font-mono">' + (stats.gamesPlayed || 0) + ' games played</div>' +
+                '<div class="text-xs text-gray-400 font-mono">' + (stats.gamesPlayed || 0) + ' games played</div>' +
               '</div>' +
             '</div>' +
             '<div class="text-right">' +
-              '<span class="text-xs font-mono px-2 py-1 rounded ' + ptsColor + '">#' + (stats.overallRank || "—") + ' Overall</span>' +
+              '<span class="text-xs font-mono px-2 py-1 rounded-lg ' + ptsColor + '">#' + (stats.overallRank || "—") + ' Overall</span>' +
             '</div>' +
           '</div>' +
           '<div class="mt-3 grid grid-cols-3 gap-2">' +
-            '<div class="bg-gray-950 rounded-lg p-2 text-center">' +
+            '<div class="matchup-surface-soft rounded-lg p-2 text-center">' +
               '<div class="text-[10px] text-gray-500 uppercase font-mono">Pts/Game</div>' +
               '<div class="text-lg font-bold text-white">' + (stats.ptsPerGame || "—") + '</div>' +
             '</div>' +
             yardsSection +
           '</div>' +
           extraStats +
-          '<div class="mt-2 text-[10px] text-gray-600 font-mono">' +
+          '<div class="mt-2 text-[10px] text-gray-400 font-mono">' +
             'Weakness: ' + self.getDefenseWeakness(stats) +
           '</div>';
 
@@ -11383,7 +11510,7 @@ renderFA: function() {
     for (var w = 1; w <= cw; w++) {
       var opt = document.createElement("option");
       opt.value = String(w);
-      opt.textContent = "Week " + w;
+      opt.textContent = String(w);
       if (w === cw) opt.selected = true;
       sel.appendChild(opt);
     }
@@ -11425,7 +11552,7 @@ renderFA: function() {
       
       // Update comparison subtitle
       if (self.dom.historyCompareSubtitle) {
-        self.dom.historyCompareSubtitle.textContent = "Week " + week + " totals by position.";
+        self.dom.historyCompareSubtitle.textContent = "";
       }
       
       // Render the view
@@ -11455,7 +11582,7 @@ renderFA: function() {
       var active = String(r.roster_id) === String(self.ui.historySelectedRosterId);
       btn.className = active
         ? "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab madden-tab-active"
-        : "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab text-gray-300";
+        : "px-4 py-2 rounded-xl font-bold whitespace-nowrap madden-tab text-white";
       btn.textContent = name;
       btn.onclick = function() {
         self.ui.historySelectedRosterId = r.roster_id;
@@ -11811,7 +11938,7 @@ renderFA: function() {
           '<table class="w-full text-[9.5px] table-fixed tabular-nums">' +
             '<thead class="text-[9px] uppercase text-gray-400 sticky top-0 z-10">' +
               '<tr class="history-soft-cell">' +
-                '<th class="text-left px-2 py-1.5 w-[33%] history-soft-cell">Team</th>' +
+                '<th class="text-center px-2 py-1.5 w-[33%] history-soft-cell">Team</th>' +
                 headerCells +
                 '<th class="text-center px-2 py-1.5 w-[11%] hidden md:table-cell history-soft-cell">TOT</th>' +
               '</tr>' +
@@ -12427,7 +12554,7 @@ actualStarters: actualStarters,
     }
 
     if (this.dom.historyCompareSubtitle) {
-      this.dom.historyCompareSubtitle.textContent = "Best Lineup (B)";
+      this.dom.historyCompareSubtitle.textContent = "Best Lineup";
     }
 
         // Totals: compare the lineup you actually used vs the computed optimal lineup for this week
