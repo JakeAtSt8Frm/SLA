@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
   <meta name="description" content="Sleeper League Analytics - Advanced fantasy football analytics, roster analysis, matchup projections, and performance insights for your Sleeper league." />
-  <meta name="theme-color" content="#ff6b3d" />
+  <meta name="theme-color" content="#0f1724" />
   <meta name="color-scheme" content="dark" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -81,7 +81,7 @@
 
     /* Sidebar Active States */
     .nav-btn-active {
-      background: linear-gradient(135deg, rgba(255,107,61,0.14) 0%, rgba(255,161,74,0.06) 100%) !important;
+      background: linear-gradient(135deg, rgba(96,165,250,0.14) 0%, rgba(59,130,246,0.06) 100%) !important;
       color: var(--accent) !important;
       border: 1px solid var(--border-accent);
       box-shadow: 0 0 16px var(--accent-glow);
@@ -96,7 +96,7 @@
     .card-hover:hover {
       border-color: var(--border-accent);
       box-shadow: 0 8px 24px rgba(0,0,0,0.34), 0 0 24px var(--accent-glow), 0 0 1px rgba(255,255,255,0.08);
-      transform: translateY(-1px);
+      transform: translateY(1px);
     }
     
     /* Backgrounds */
@@ -107,10 +107,10 @@
     .player-card {
       position: relative;
       background: linear-gradient(160deg, rgba(24,27,38,0.96), rgba(17,20,31,0.94));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
+      border: 0.5px solid rgba(148,163,184,0.2);
+      border-radius: 14px;
       overflow: hidden;
-      min-height: 172px;
+      min-height: clamp(152px, 18vw, 172px);
       box-shadow: var(--shadow-card);
       transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
     }
@@ -120,8 +120,8 @@
     }
     .player-card:hover {
       border-color: var(--border-accent);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.42), 0 0 26px var(--accent-glow);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 10px rgba(96,165,250,0.12);
+      transform: translateY(1px);
     }
     .player-card.is-out {
       opacity: 0.72;
@@ -131,14 +131,14 @@
       display: grid;
       grid-template-columns: minmax(116px, 35%) 1fr;
       gap: 10px;
-      min-height: 172px;
+      min-height: clamp(152px, 18vw, 172px);
       padding: 8px;
     }
     .pc-hero {
       position: relative;
-      border-radius: var(--radius-lg);
+      border-radius: 10px;
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: 0.5px solid rgba(148,163,184,0.18);
       background: var(--surface-3);
       isolation: isolate;
     }
@@ -171,7 +171,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 9px;
+      padding: clamp(7px, 1vw, 9px);
     }
     .pc-hero-top {
       display: flex;
@@ -179,16 +179,22 @@
       align-items: flex-start;
       gap: 8px;
     }
+    .pc-hero-top-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-left: auto;
+    }
     .pc-slot {
       display: inline-flex;
       align-items: center;
-      padding: 2px 6px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
+      padding: clamp(1px, 0.25vw, 2px) clamp(5px, 0.55vw, 7px);
+      border-radius: 6px;
+      border: 0.5px solid rgba(255,255,255,0.12);
       background: rgba(8,10,14,0.55);
       color: #f5f7fb;
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: clamp(7px, 0.62vw, 9px);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 600;
@@ -196,12 +202,27 @@
     .pc-age {
       color: rgba(231,233,238,0.84);
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: clamp(8px, 0.72vw, 9px);
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-shadow: 0 1px 2px rgba(0,0,0,0.5);
       white-space: nowrap;
+    }
+    .pc-fav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+    }
+    .pc-fav-btn.watchlist-star {
+      font-size: 13px;
+      line-height: 1;
     }
     .pc-hero-bottom {
       display: flex;
@@ -210,9 +231,9 @@
       min-width: 0;
     }
     .pc-team-pos {
-      color: rgba(255,161,74,0.94);
+      color: rgba(147,197,253,0.94);
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: clamp(9px, 0.8vw, 10px);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
@@ -230,11 +251,11 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: clamp(18px, 1.8vw, 23px);
+      font-size: clamp(16px, 1.8vw, 23px);
     }
     .pc-value {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: clamp(8px, 0.78vw, 11px);
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -243,19 +264,19 @@
       align-self: flex-start;
       align-items: center;
       gap: 4px;
-      padding: 2px 8px;
-      border-radius: 999px;
+      padding: clamp(1px, 0.25vw, 2px) clamp(5px, 0.6vw, 8px);
+      border-radius: 6px;
       background: linear-gradient(135deg, rgba(34,197,94,0.22), rgba(16,185,129,0.12));
-      border: 1px solid rgba(34,197,94,0.4);
+      border: 0.5px solid rgba(34,197,94,0.34);
       text-shadow: 0 0 10px rgba(34,197,94,0.42);
       box-shadow: 0 0 16px rgba(34,197,94,0.24), inset 0 0 0 1px rgba(255,255,255,0.04);
     }
     .pc-main {
       min-width: 0;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
+      border-radius: 10px;
+      border: 0.5px solid rgba(148,163,184,0.18);
       background: linear-gradient(180deg, rgba(15,17,26,0.94), rgba(13,15,23,0.98));
-      padding: 8px 9px;
+      padding: clamp(7px, 1vw, 9px);
       display: flex;
       flex-direction: column;
       gap: 7px;
@@ -281,14 +302,14 @@
       align-items: center;
       gap: 1px;
       padding: 2px 4px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 5px;
+      border: 0.5px solid rgba(255,255,255,0.045);
       background: rgba(255,255,255,0.02);
       text-align: center;
     }
     .pc-rank-label {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: clamp(8px, 0.72vw, 9px);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-3);
@@ -296,7 +317,7 @@
     }
     .pc-rank-value {
       font-family: var(--font-display);
-      font-size: 14px;
+      font-size: clamp(12px, 1.05vw, 14px);
       font-weight: 700;
       color: var(--text);
       letter-spacing: -0.02em;
@@ -308,7 +329,7 @@
     .pc-rank-value-points { color: #7dd3fc; text-shadow: 0 0 10px rgba(56,189,248,0.24); }
     .pc-rank-sub {
       font-family: var(--font-mono);
-      font-size: 8px;
+      font-size: clamp(7px, 0.65vw, 8px);
       color: var(--text-3);
       white-space: nowrap;
     }
@@ -316,7 +337,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 8px;
+      gap: 16px;
       flex-wrap: nowrap;
       min-width: 0;
       padding-bottom: 7px;
@@ -325,11 +346,13 @@
     .pc-pill-row .pc-pill {
       margin: 0;
       min-width: 0;
+      flex: 1 1 0;
       max-width: 48%;
     }
     .pc-pill-row .pc-pill--trend {
       margin-left: auto;
       justify-self: end;
+      flex: 1 1 0;
       max-width: 52%;
     }
     .pc-context-row {
@@ -345,7 +368,7 @@
     }
     .pc-label {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: clamp(8px, 0.72vw, 9px);
       color: var(--text-3);
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -353,7 +376,7 @@
     .pc-opponent-value {
       font-family: var(--font-display);
       color: var(--text);
-      font-size: 15px;
+      font-size: clamp(13px, 1.05vw, 15px);
       font-weight: 700;
       letter-spacing: -0.01em;
       line-height: 1.1;
@@ -377,14 +400,14 @@
     }
     .pc-rate-label {
       font-family: var(--font-mono);
-      font-size: 8px;
+      font-size: clamp(7px, 0.65vw, 8px);
       color: var(--text-3);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
     .pc-rate-value {
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: clamp(9px, 0.8vw, 10px);
       font-weight: 700;
       color: var(--text-2);
     }
@@ -395,20 +418,25 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      padding: 2px 7px;
-      border-radius: 999px;
-      border: 1px solid transparent;
+      gap: clamp(2px, 0.35vw, 4px);
+      padding: clamp(1px, 0.22vw, 2px) clamp(5px, 0.55vw, 7px);
+      border-radius: 6px;
+      border: 0.5px solid transparent;
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: clamp(7px, 0.62vw, 9px);
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       white-space: nowrap;
-      max-width: 220px;
+      max-width: min(100%, 220px);
       overflow: hidden;
       text-overflow: ellipsis;
-      line-height: 1.15;
+      line-height: 1.05;
+    }
+    .pc-pill > span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .pc-meta-row .pc-rank-grid {
       flex: 1 1 230px;
@@ -432,9 +460,9 @@
       grid-template-columns: auto 1fr;
       gap: 7px;
       padding: 7px;
-      border-radius: 11px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: linear-gradient(90deg, rgba(255,107,61,0.08), rgba(167,139,250,0.06));
+      border-radius: 8px;
+      border: 0.5px solid rgba(255,255,255,0.05);
+      background: linear-gradient(90deg, rgba(96,165,250,0.08), rgba(59,130,246,0.05));
       min-width: 0;
     }
     .pc-mini-stack {
@@ -445,15 +473,15 @@
     }
     .pc-mini-chip {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: clamp(7px, 0.62vw, 9px);
       font-weight: 700;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: #fde5d9;
-      border: 1px solid rgba(255,161,74,0.26);
-      background: rgba(255,107,61,0.16);
-      border-radius: 999px;
-      padding: 2px 7px;
+      color: #dbeafe;
+      border: 0.5px solid rgba(96,165,250,0.22);
+      background: rgba(96,165,250,0.14);
+      border-radius: 6px;
+      padding: clamp(1px, 0.22vw, 2px) clamp(5px, 0.55vw, 7px);
       text-align: center;
       white-space: nowrap;
     }
@@ -477,7 +505,7 @@
     }
     .pc-score-label {
       font-family: var(--font-mono);
-      font-size: 8px;
+      font-size: clamp(7px, 0.65vw, 8px);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: rgba(231,233,238,0.58);
@@ -485,7 +513,7 @@
     }
     .pc-score-value {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: clamp(18px, 1.6vw, 22px);
       line-height: 1;
       letter-spacing: -0.02em;
       font-weight: 800;
@@ -526,7 +554,7 @@
     
     /* Table Styling */
     .table-row-hover:hover {
-      background: rgba(255,107,61,0.045);
+      background: rgba(96,165,250,0.045);
     }
 
     /* Enhanced table headers */
@@ -542,7 +570,7 @@
       transition: background 120ms ease;
     }
     tbody tr:hover td {
-      background: rgba(255,107,61,0.04) !important;
+      background: rgba(96,165,250,0.04) !important;
     }
     tbody td {
       font-family: var(--font-mono);
@@ -552,12 +580,12 @@
     /* Focus states */
     button:focus, select:focus, input:focus {
       outline: none;
-      box-shadow: 0 0 0 2px rgba(255,107,61,0.28);
+      box-shadow: 0 0 0 2px rgba(96,165,250,0.28);
     }
     
     /* Focus visible for keyboard users */
     button:focus-visible, select:focus-visible, input:focus-visible {
-      box-shadow: 0 0 0 3px rgba(255,107,61,0.4);
+      box-shadow: 0 0 0 3px rgba(96,165,250,0.4);
     }
     
     /* Smooth scrolling for better UX */
@@ -582,6 +610,13 @@
     }
     select {
       border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-weight: 600;
+      opacity: 1;
+    }
+    select:hover,
+    select:focus {
+      color: #f8fbff;
     }
     
     /* ===========================
@@ -606,7 +641,7 @@
         width: 100% !important;
         min-width: 0 !important;
         min-height: 42px !important;
-        font-size: 11px !important;
+        font-size: 12px !important;
       }
 
       /* Better spacing on mobile */
@@ -620,7 +655,7 @@
         left: 0;
         bottom: 0;
         width: min(220px, 88vw) !important;
-        padding: 0.85rem 0.65rem !important;
+        padding: 0.65rem 0.65rem !important;
         gap: 0.25rem;
         background: var(--bg-2);
         border-right: 1px solid var(--border);
@@ -681,19 +716,19 @@
       .text-lg { font-size: 1rem; }
       
       .player-card {
-        min-height: 164px !important;
+        min-height: 156px !important;
       }
       .pc-shell {
         gap: 8px;
-        min-height: 164px;
-        padding: 7px;
+        min-height: 156px;
+        padding: 6px;
       }
       .pc-main {
-        padding: 7px 8px;
-        gap: 6px;
+        padding: 6px 7px;
+        gap: 5px;
       }
       .pc-pill-row {
-        gap: 6px;
+        gap: 5px;
         flex-wrap: wrap;
       }
       .pc-pill-row .pc-pill {
@@ -704,35 +739,60 @@
         row-gap: 6px;
       }
       .pc-rank-grid {
-        gap: 6px;
+        gap: 5px;
       }
       .pc-rank-value {
-        font-size: 13px;
+        font-size: 12px;
       }
       .pc-pill {
         max-width: 100%;
       }
       .pc-score-value {
-        font-size: 19px;
+        font-size: 18px;
+      }
+      .pc-name {
+        font-size: 17px;
+      }
+      .pc-opponent-value {
+        font-size: 13px;
+      }
+      .pc-team-pos,
+      .pc-label,
+      .pc-mini-chip,
+      .pc-pill,
+      .pc-rate-label,
+      .pc-score-label {
+        letter-spacing: 0.05em;
+      }
+      #historyMainContent {
+        grid-template-columns: 1fr !important;
+      }
+      #historyMainContent > :first-child,
+      .teams-roster {
+        order: 1;
+      }
+      #historyMainContent > :last-child,
+      .teams-compare {
+        order: 2;
       }
     }
     
     /* Extra small screens */
     @media (max-width: 400px) {
       .player-card {
-        min-height: 150px !important;
+        min-height: 146px !important;
       }
       .pc-shell {
         grid-template-columns: minmax(96px, 34%) 1fr;
-        min-height: 150px;
+        min-height: 146px;
         gap: 6px;
         padding: 6px;
       }
       .pc-name {
-        font-size: 16px;
+        font-size: 15px;
       }
       .pc-team-pos {
-        font-size: 9px;
+        font-size: 8px;
       }
       .pc-rank-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -781,41 +841,41 @@
     tr:hover td{ background: rgba(255,255,255,.025); }
 
     /* ===========================
-       OBSIDIAN PRO THEME
+       WRAPPED-STYLE THEME
        =========================== */
     :root{
-      --bg: #0a0b10;
-      --bg-2: #0e1018;
-      --surface: #13151e;
-      --surface-0: #0a0b10;
-      --surface-1: #0e1018;
-      --surface-2: #13151e;
-      --surface-3: #1a1d29;
-      --surface-4: #212635;
-      --glass: rgba(19,21,30,0.8);
-      --glass-border: rgba(255,255,255,0.06);
-      --glass-border-hover: rgba(255,255,255,0.12);
-      --border: rgba(255,255,255,0.06);
-      --border-accent: rgba(255,120,80,0.34);
+      --bg: #090d14;
+      --bg-2: #0d131d;
+      --surface: #111826;
+      --surface-0: #090d14;
+      --surface-1: #0d131d;
+      --surface-2: #111826;
+      --surface-3: #172031;
+      --surface-4: #1d2940;
+      --glass: rgba(15, 23, 36, 0.84);
+      --glass-border: rgba(148, 163, 184, 0.14);
+      --glass-border-hover: rgba(148, 163, 184, 0.24);
+      --border: rgba(148, 163, 184, 0.14);
+      --border-accent: rgba(96, 165, 250, 0.34);
 
-      --accent: #ff6b3d;
-      --accent-vivid: #ffa14a;
-      --accent-glow: rgba(255,107,61,0.24);
-      --accent-dim: rgba(255,107,61,0.11);
-      --accent-gradient: linear-gradient(135deg, #ff6b3d 0%, #ffa14a 100%);
-      --accent-gradient-text: linear-gradient(135deg, #ff8b66 0%, #ffc67c 100%);
+      --accent: #60a5fa;
+      --accent-vivid: #93c5fd;
+      --accent-glow: rgba(96, 165, 250, 0.22);
+      --accent-dim: rgba(96, 165, 250, 0.12);
+      --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+      --accent-gradient-text: linear-gradient(135deg, #bfdbfe 0%, #60a5fa 100%);
 
-      --text-primary: #e7e9ee;
-      --text-secondary: #a8adbb;
-      --text-muted: #6b7184;
-      --text-dim: #484d5e;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
       --text: var(--text-primary);
       --text-2: var(--text-secondary);
       --text-3: var(--text-muted);
 
-      --shadow-card: 0 8px 24px rgba(0,0,0,0.34), 0 2px 6px rgba(0,0,0,0.18);
-      --shadow-panel: 0 20px 44px rgba(0,0,0,0.45), 0 4px 10px rgba(0,0,0,0.2);
-      --shadow-glow: 0 0 26px var(--accent-glow), 0 0 58px rgba(255,161,74,0.1);
+      --shadow-card: 0 10px 30px rgba(2, 6, 23, 0.32), 0 2px 8px rgba(2, 6, 23, 0.16);
+      --shadow-panel: 0 18px 44px rgba(2, 6, 23, 0.4), 0 4px 12px rgba(2, 6, 23, 0.18);
+      --shadow-glow: 0 0 20px var(--accent-glow), 0 0 42px rgba(59, 130, 246, 0.08);
 
       --radius-sm: 8px;
       --radius-md: 12px;
@@ -826,10 +886,8 @@
       --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
       --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, monospace;
-      /* Global font unification: title/body/display all use the JetBrains Mono stack.
-         Player cards override these below to preserve their original typography. */
-      --font-display: "JetBrains Mono", ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, monospace;
-      --font-body: "JetBrains Mono", ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, monospace;
+      --font-display: "Inter Tight", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-body: "Inter Tight", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-display-original: "Bricolage Grotesque", system-ui, sans-serif;
       --font-body-original: "Inter Tight", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -859,9 +917,9 @@
       content: '';
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(60% 50% at 8% 0%, rgba(255, 107, 61, 0.08), transparent 70%),
-        radial-gradient(50% 45% at 95% 100%, rgba(34, 211, 238, 0.05), transparent 70%),
-        radial-gradient(48% 44% at 60% 52%, rgba(167, 139, 250, 0.04), transparent 72%);
+        radial-gradient(56% 46% at 12% 0%, rgba(59, 130, 246, 0.14), transparent 72%),
+        radial-gradient(42% 36% at 100% 100%, rgba(14, 165, 233, 0.08), transparent 70%),
+        linear-gradient(180deg, rgba(9, 13, 20, 0.92), rgba(9, 13, 20, 1));
     }
 
     /* Noise Texture Overlay */
@@ -879,7 +937,7 @@
     /* Header */
     header.ui2k-header{
       position: relative;
-      background: rgba(14, 16, 24, 0.74);
+      background: rgba(13, 19, 29, 0.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border) !important;
@@ -896,12 +954,17 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,161,74,0.28), transparent);
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,0.3), transparent);
       opacity: 0.8;
       pointer-events: none;
     }
 
-    .ui2k-header-left { min-width: 0; }
+    .ui2k-header-left {
+      min-width: 0;
+      flex: 0 1 auto;
+      align-items: center;
+      gap: 14px;
+    }
     .ui2k-header-right { margin-left: auto; min-width: 0; }
 
     /* Logo / Brand */
@@ -929,29 +992,55 @@
       pointer-events: none;
     }
 
-    .ui2k-brand-copy { min-width: 0; display: flex; flex-direction: column; justify-content: center; line-height: 1.05; }
+    .ui2k-brand-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      line-height: 1;
+      flex-wrap: nowrap;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      max-width: min(42vw, 520px);
+    }
     .ui2k-brand-wordmark{
-      font-family: var(--font-mono);
-      font-size: 40px;
+      font-family: var(--font-display);
+      font-size: 34px;
       font-weight: 800;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent-vivid);
-      text-shadow: 0 0 14px rgba(255,107,61,0.34), 0 0 1px rgba(255,161,74,0.24);
+      color: var(--text-primary);
+      text-shadow: none;
       white-space: nowrap;
       line-height: 1;
       flex-shrink: 0;
     }
     @media (max-width: 1024px) {
       .ui2k-brand-wordmark{
-        font-size: 30px;
-        letter-spacing: 0.04em;
+        font-size: 29px;
+        letter-spacing: 0.07em;
       }
     }
     @media (max-width: 640px) {
+      .ui2k-header-left {
+        gap: 10px;
+      }
+      .ui2k-brand-copy {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        gap: 6px;
+        max-width: none;
+      }
       .ui2k-brand-wordmark{
         font-size: 22px;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.06em;
       }
     }
 
@@ -972,10 +1061,10 @@
       color: var(--text) !important;
     }
     .ui2k-chip-btn{
-      border-radius: 999px !important;
+      border-radius: 9px !important;
       border: 1px solid var(--border) !important;
       background: var(--surface) !important;
-      color: var(--text-2) !important;
+      color: var(--text-primary) !important;
       font-family: var(--font-mono) !important;
       font-size: 11px !important;
       padding: 5px 10px !important;
@@ -985,7 +1074,7 @@
       color: var(--text) !important;
       border-color: var(--border-strong, rgba(255,255,255,0.12)) !important;
       background: var(--surface-2) !important;
-      transform: translateY(-1px);
+      transform: translateY(1px);
     }
     .ui2k-status-chip{
       gap: 10px;
@@ -1021,6 +1110,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     #hdrMeta{
@@ -1030,14 +1120,16 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       opacity: 0.8;
+      white-space: nowrap;
+      max-width: 100%;
     }
 
     /* Sidebar */
     aside.ui2k-sidebar.ui2k-sidebar-shell{
       width: 220px !important;
-      background: var(--bg-2);
+      background: rgba(13, 19, 29, 0.95);
       border-right: 1px solid var(--border) !important;
-      padding: 16px 12px !important;
+      padding: 8px 12px 12px 12px !important;
       gap: 4px !important;
       align-items: stretch !important;
       overflow-y: auto;
@@ -1048,61 +1140,26 @@
 
     aside.ui2k-sidebar::before{ display:none; }
 
-    .ui2k-sidebar-brand{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 10px 16px 10px;
-      margin-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .ui2k-sidebar-mark{
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: var(--accent-gradient);
-      color: #121317;
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 16px;
-      box-shadow: 0 0 20px var(--accent-glow);
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .ui2k-sidebar-mark::after{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.26), transparent 56%);
-      pointer-events: none;
-    }
-    .ui2k-sidebar-brand-text{ min-width: 0; line-height: 1.08; }
+    .ui2k-sidebar-brand{ display: none; }
+    .ui2k-sidebar-brand-text{ min-width: 0; line-height: 1.02; }
     .ui2k-sidebar-brand-name{
       font-family: var(--font-display);
       color: var(--text);
-      font-size: 14px;
+      font-size: clamp(18px, 1.2vw, 22px);
       font-weight: 700;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      letter-spacing: -0.02em;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
     }
     .ui2k-sidebar-brand-sub{
-      margin-top: 3px;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-3);
+      display: none;
     }
     .ui2k-nav-section{
-      padding: 12px 10px 4px 10px;
+      padding: 2px 10px 4px 10px;
       font-family: var(--font-mono);
       font-size: 10px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-dim);
       user-select: none;
@@ -1143,13 +1200,13 @@
       text-align: left !important;
       background: transparent !important;
       border: 1px solid transparent !important;
-      border-radius: var(--radius-md) !important;
+      border-radius: 10px !important;
       font-family: var(--font-body);
       font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 0.06em;
+      font-size: clamp(12px, 0.95vw, 13px);
+      letter-spacing: -0.01em;
       color: var(--text-muted);
-      text-transform: uppercase;
+      text-transform: none;
       transition: all 180ms var(--ease-out);
       position: relative;
       line-height: 1.1;
@@ -1178,11 +1235,11 @@
 
     /* Active Nav Button */
     .nav-btn-active{
-      background: linear-gradient(135deg, rgba(255,107,61,0.12), rgba(255,161,74,0.04)) !important;
+      background: linear-gradient(135deg, rgba(96,165,250,0.15), rgba(59,130,246,0.05)) !important;
       color: var(--accent) !important;
-      border: 1px solid rgba(255,107,61,0.18) !important;
+      border: 1px solid rgba(96,165,250,0.22) !important;
       font-weight: 700;
-      box-shadow: inset 0 0 0 1px rgba(255,107,61,0.14);
+      box-shadow: inset 0 0 0 1px rgba(96,165,250,0.12);
     }
     .nav-btn-active .nav-icon {
       opacity: 1 !important;
@@ -1209,7 +1266,7 @@
         left: 0;
         bottom: 0;
         width: min(220px, 88vw) !important;
-        padding: 0.85rem 0.65rem !important;
+        padding: 0.45rem 0.65rem 0.65rem !important;
         transform: translateX(-110%);
         transition: transform 200ms ease;
         z-index: 70;
@@ -1217,16 +1274,13 @@
       body.nav-open aside.ui2k-sidebar.ui2k-sidebar-shell{
         transform: translateX(0);
       }
-      .ui2k-sidebar-brand{
-        padding: 6px 10px 12px 10px;
-      }
       .ui2k-nav-section{
-        padding-top: 10px;
+        padding-top: 2px;
       }
       .ui2k-navbtn{
         width: 100% !important;
         min-height: 42px !important;
-        font-size: 11px !important;
+        font-size: 12px !important;
       }
       .ui2k-navbtn .nav-label-full { display: none; }
       .ui2k-navbtn .nav-label-short { display: inline; }
@@ -1235,8 +1289,8 @@
     /* Panels - Glass Morphism */
     .ui2k-panel{
       background: var(--glass) !important;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border) !important;
       border-radius: var(--radius-lg) !important;
       box-shadow: var(--shadow-panel);
@@ -1257,7 +1311,119 @@
       transition: border-color 200ms ease, box-shadow 200ms ease;
     }
     .ui2k-panel:hover {
-      border-color: rgba(255,255,255,0.08) !important;
+      border-color: rgba(148,163,184,0.2) !important;
+    }
+
+    .ui2k-main{
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 28%),
+        linear-gradient(180deg, #0b1220 0%, #0a111d 100%) !important;
+    }
+
+    .ui2k-main::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(148,163,184,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(circle at center, black, transparent 88%);
+      opacity: 0.5;
+    }
+
+    .history-soft-shell {
+      background: rgba(24,30,39,0.88) !important;
+      border-color: rgba(71,85,105,0.4) !important;
+    }
+    .history-soft-header {
+      background: rgba(28,34,44,0.94) !important;
+      border-color: rgba(96,165,250,0.14) !important;
+    }
+    .history-soft-panel {
+      background: rgba(30,36,46,0.9) !important;
+      border-color: rgba(71,85,105,0.34) !important;
+    }
+    .history-soft-cell {
+      background: rgba(27,33,43,0.96) !important;
+    }
+
+    .roster-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(71,85,105,0.34);
+    }
+    .roster-block-header-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .roster-block-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 2px solid rgba(96,165,250,0.5);
+      background: rgba(96,165,250,0.08);
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .roster-block-dot--muted {
+      border-color: rgba(148,163,184,0.36);
+      background: rgba(148,163,184,0.08);
+    }
+    .roster-block-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #d7deea;
+      white-space: nowrap;
+    }
+    .roster-block-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+    .roster-position-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      margin-top: 16px;
+      margin-bottom: 10px;
+    }
+    .roster-block-header + .roster-position-header {
+      margin-top: 0;
+    }
+    .roster-position-section {
+      margin-bottom: 16px;
+    }
+    .roster-position-section:last-child {
+      margin-bottom: 0;
+    }
+    .roster-position-bar {
+      width: 3px;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(96,165,250,0.5);
+      flex-shrink: 0;
+    }
+    .roster-position-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #93c5fd;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
 
@@ -1270,8 +1436,8 @@
       letter-spacing: 0;
       background: var(--surface-3);
       border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md);
-      color: var(--text-secondary);
+      border-radius: 9px;
+      color: var(--text-primary);
       transition: all 150ms ease;
     }
 
@@ -1292,7 +1458,7 @@
     /* Section Headers */
     .text-2xl.font-bold.text-white{
       font-family: var(--font-display) !important;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.03em;
       text-transform: none;
       color: var(--text-primary);
@@ -1321,6 +1487,42 @@
     select{
       font-family: var(--font-body);
       font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea{
+      background: rgba(15, 23, 36, 0.88) !important;
+      border: 1px solid rgba(148,163,184,0.18) !important;
+      color: var(--text-primary) !important;
+      border-radius: 12px !important;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="number"]::placeholder,
+    textarea::placeholder{
+      color: var(--text-muted) !important;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus,
+    textarea:focus{
+      border-color: rgba(96,165,250,0.34) !important;
+      box-shadow: 0 0 0 3px rgba(96,165,250,0.18) !important;
+    }
+
+    #settingsReset{
+      background: var(--surface-3) !important;
+      border: 1px solid var(--glass-border) !important;
+      color: var(--text-primary) !important;
+      font-weight: 600;
+    }
+
+    #settingsReset:hover{
+      background: var(--surface-4) !important;
+      border-color: var(--glass-border-hover) !important;
     }
 
     /* Progress Bar - Animated Gradient with Shimmer */
@@ -1475,6 +1677,18 @@
     }
     .text-gray-300 {
       color: #cbd5e1 !important;
+    }
+    #viewDef .bg-gray-900,
+    #viewDef .bg-gray-900\/80 {
+      background: #11161d !important;
+    }
+    #viewDef .bg-gray-950,
+    #viewDef .bg-gray-950\/40,
+    #viewDef .bg-gray-950\/50 {
+      background: #171d25 !important;
+    }
+    #viewDef .bg-black\/40 {
+      background: rgba(17,22,29,0.78) !important;
     }
     .text-gray-200 {
       color: var(--text-primary) !important;
@@ -1729,10 +1943,11 @@
        WATCHLIST STAR
        =========================== */
     .watchlist-star {
-      cursor: pointer; font-size: 14px; opacity: 0.2;
+      cursor: pointer; font-size: 14px; opacity: 0.28;
       transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
       user-select: none;
       filter: grayscale(1);
+      color: rgba(226,232,240,0.88);
     }
     .watchlist-star:hover { opacity: 0.6; transform: scale(1.25); filter: grayscale(0); }
     .watchlist-star.starred { opacity: 1; color: #fbbf24; transform: scale(1.1); filter: grayscale(0) drop-shadow(0 0 4px rgba(251,191,36,0.5)); }
@@ -1751,16 +1966,16 @@
       border-radius: var(--radius-xl);
       padding: 14px;
       background:
-        radial-gradient(120% 120% at 0% 0%, rgba(255,107,61,0.08), transparent 55%),
-        linear-gradient(180deg, rgba(19,21,30,0.92), rgba(14,16,24,0.98));
+        radial-gradient(120% 120% at 0% 0%, rgba(96,165,250,0.08), transparent 55%),
+        linear-gradient(180deg, rgba(25,29,39,0.96), rgba(19,23,31,0.98));
       border: 1px solid rgba(255,255,255,0.06);
       box-shadow: 0 8px 26px rgba(0,0,0,0.35), 0 0 1px rgba(255,255,255,0.04);
       transition: transform 180ms var(--ease-out), border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
     }
     .vs-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,107,61,0.24);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.46), 0 0 18px rgba(255,107,61,0.16);
+      transform: translateY(1px);
+      border-color: rgba(96,165,250,0.24);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.46), 0 0 18px rgba(96,165,250,0.16);
     }
     .vs-card-head {
       display: flex;
@@ -1800,9 +2015,9 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #fcd9cb;
-      background: rgba(255,107,61,0.16);
-      border: 1px solid rgba(255,107,61,0.34);
+      color: #dbeafe;
+      background: rgba(96,165,250,0.16);
+      border: 1px solid rgba(96,165,250,0.34);
       padding: 3px 8px;
       border-radius: 999px;
       white-space: nowrap;
@@ -1815,7 +2030,7 @@
     .vs-team {
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.07);
-      background: linear-gradient(180deg, rgba(8,10,14,0.9), rgba(10,13,18,0.96));
+      background: linear-gradient(180deg, rgba(20,24,32,0.94), rgba(16,20,28,0.98));
       padding: 10px;
       min-width: 0;
       transition: border-color 160ms ease, box-shadow 160ms ease;
@@ -1878,7 +2093,7 @@
     .vs-win {
       margin-top: 10px;
       border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.035);
       border-radius: 10px;
       padding: 8px 9px;
     }
@@ -2001,7 +2216,7 @@
       animation: freshPulse 2.5s ease-in-out infinite;
     }
     .freshness-dot.stale { background: #fbbf24; box-shadow: 0 0 6px rgba(251,191,36,0.4); animation: none; }
-    @keyframes freshPulse { 0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--accent-glow); } 50% { opacity: 0.4; box-shadow: 0 0 2px rgba(255,107,61,0.18); } }
+    @keyframes freshPulse { 0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--accent-glow); } 50% { opacity: 0.4; box-shadow: 0 0 2px rgba(96,165,250,0.18); } }
 
     /* ===========================
        ENHANCED TABLE SORTING INDICATORS
@@ -2047,7 +2262,23 @@
        BUTTON ENHANCEMENTS
        =========================== */
     button {
+      border-radius: 9px;
       transition: all 150ms ease;
+    }
+    button[class*="rounded-"] {
+      border-radius: 9px !important;
+    }
+    #seasonSelect,
+    #matchupsWeekSelect,
+    #historyWeekSelect,
+    #faSortSelect,
+    #defRoleSelect {
+      color: #f8fbff !important;
+      font-weight: 700 !important;
+    }
+    #matchupsWeekSelect,
+    #historyWeekSelect {
+      min-width: 88px;
     }
     .bg-gray-800:hover {
       background: var(--surface-4) !important;
@@ -2062,8 +2293,8 @@
       box-shadow: 0 2px 12px var(--accent-glow);
     }
     #settingsApply:hover {
-      box-shadow: 0 4px 20px rgba(255,107,61,0.32);
-      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(96,165,250,0.32);
+      transform: translateY(1px);
     }
 
     /* ===========================
@@ -2096,7 +2327,7 @@
   <div id="kbdHelp" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
     <div id="kbdHelpBox">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-        <div style="font-size:16px;font-weight:800;background:linear-gradient(135deg,#ff6b3d,#ffa14a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:var(--font-body)">Keyboard Shortcuts</div>
+        <div style="font-size:16px;font-weight:800;background:linear-gradient(135deg,#93c5fd,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:var(--font-body)">Keyboard Shortcuts</div>
         <button id="kbdHelpClose" style="background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;transition:color 150ms" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-muted)'">✕</button>
       </div>
       <div class="kbd-row"><span style="color:var(--text-secondary)">Open Command Palette</span><span><kbd>⌘</kbd> <kbd>K</kbd></span></div>
@@ -2165,17 +2396,17 @@
       <div class="flex flex-col items-center gap-1 ui2k-nav-group" role="group" aria-label="Roster views">
         <button class="ui2k-navbtn" id="btnTabTeams" title="Current Rosters (1)" aria-label="View current rosters">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span class="nav-label-full">ROSTER</span>
+          <span class="nav-label-full">Current Rosters</span>
           <span class="nav-label-short">ROST</span>
         </button>
         <button class="ui2k-navbtn" id="btnTabOptimal" title="Optimal Lineups (2)" aria-label="View optimal lineups">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span class="nav-label-full">OPTIMAL</span>
+          <span class="nav-label-full">Optimal Lineups</span>
           <span class="nav-label-short">OPT</span>
         </button>
         <button class="ui2k-navbtn" id="btnTabHistory" title="Historical Rosters (3)" aria-label="View historical rosters">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span class="nav-label-full">HISTORY</span>
+          <span class="nav-label-full">League History</span>
           <span class="nav-label-short">HIST</span>
         </button>
       </div>
@@ -2186,17 +2417,17 @@
       <div class="flex flex-col items-center gap-1 ui2k-nav-group" role="group" aria-label="League views">
         <button class="ui2k-navbtn" id="btnTabMatchups" title="Weekly Matchups (4)" aria-label="View weekly matchups">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-          <span class="nav-label-full">MATCHUPS</span>
+          <span class="nav-label-full">Weekly Matchups</span>
           <span class="nav-label-short">VS</span>
         </button>
         <button class="ui2k-navbtn" id="btnTabFA" title="Free Agents (5)" aria-label="View free agents">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-          <span class="nav-label-full">FREE AGENTS</span>
+          <span class="nav-label-full">Free Agents</span>
           <span class="nav-label-short">FA</span>
         </button>
         <button class="ui2k-navbtn" id="btnTabDef" title="NFL Defense Rankings (6)" aria-label="View NFL defense rankings">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span class="nav-label-full">DEFENSES</span>
+          <span class="nav-label-full">Defense Rankings</span>
           <span class="nav-label-short">DEF</span>
         </button>
       </div>
@@ -2207,12 +2438,12 @@
       <div class="flex flex-col items-center gap-1 ui2k-nav-group" role="group" aria-label="Analytics">
         <button class="ui2k-navbtn" id="btnTabInsights" title="League Analytics (7)" aria-label="View league analytics">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          <span class="nav-label-full">ANALYTICS</span>
+          <span class="nav-label-full">League Analytics</span>
           <span class="nav-label-short">STAT</span>
         </button>
         <button class="ui2k-navbtn" id="btnTabAI" title="AI Guidance (8)" aria-label="View AI guidance">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
-          <span class="nav-label-full">AI</span>
+          <span class="nav-label-full">AI Guidance</span>
           <span class="nav-label-short">AI</span>
         </button>
       </div>
@@ -2220,7 +2451,7 @@
       <div class="flex-1"></div>
       <button class="ui2k-navbtn" id="btnTabSettings" title="Settings (0)" aria-label="Open settings">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        <span class="nav-label-full">SETTINGS</span>
+        <span class="nav-label-full">Settings</span>
         <span class="nav-label-short">SET</span>
       </button>
       <div class="text-[8px] mt-1 cursor-pointer transition-colors" style="color:var(--text-muted);font-family:var(--font-mono)" aria-label="Version 4.0" title="Press ? for keyboard shortcuts" id="versionLabel">v5.0</div>
@@ -2233,8 +2464,8 @@
       <section id="viewTeams" class="h-full flex flex-col p-4 gap-2">
         <div class="flex items-end justify-between gap-4">
           <div>
-            <div class="text-2xl font-bold text-white tracking-tight">CURRENT ROSTERS</div>
-            <div class="text-sm text-accent" >CURRENT LINEUP SNAPSHOTS</div>
+            <div class="text-2xl font-bold text-white tracking-tight">Current Rosters</div>
+            <div class="text-sm text-accent" >Current lineup snapshots</div>
           </div>
           <div class="px-3 py-1.5 bg-gray-800/50 rounded-lg border border-accent/30 ui2k-panel">
             <span class="text-xs text-accent font-mono" id="currentWeekLabel" >Week —</span>
@@ -2268,8 +2499,7 @@
               <div class="flex items-center gap-3">
                 <div class="madden-status-bar h-10"></div>
                 <div>
-                  <div class="text-white font-bold uppercase tracking-wide" >Team Comparison</div>
-                  <div class="text-xs text-accent/70 font-mono">Projected totals by position</div>
+                  <div class="text-white font-bold tracking-wide" >Team Comparison</div>
                 </div>
               </div>
             </div>
@@ -2282,7 +2512,7 @@
       <section id="viewMatchups" class="h-full hidden flex flex-col p-4 gap-2">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <div class="text-2xl font-bold text-white tracking-tight">MATCHUPS</div>
+            <div class="text-2xl font-bold text-white tracking-tight">Weekly Matchups</div>
           </div>
           <div class="flex items-center gap-2 bg-gray-800/50 rounded-lg px-3 py-1.5 border border-accent/30 ui2k-panel w-full sm:w-auto justify-between sm:justify-start">
             <span class="text-[10px] font-semibold text-accent uppercase tracking-wider" >Week</span>
@@ -2296,11 +2526,18 @@
       <section id="viewFA" class="h-full hidden flex flex-col p-4 gap-2">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <div class="text-2xl font-bold text-white tracking-tight">FREE AGENTS</div>
-            <div class="text-sm text-accent" >TOP UNROSTERED PLAYERS BY SEASON TOTAL</div>
+            <div class="text-2xl font-bold text-white tracking-tight">Free Agents</div>
           </div>
           <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             <input id="faSearch" placeholder="Search free agents…" class="rounded-lg px-3 py-2 text-sm w-full sm:w-56" style="background:var(--surface-2);border:1px solid var(--glass-border);color:var(--text-primary);font-family:var(--font-body)" />
+            <label class="flex items-center gap-2 text-xs rounded-lg px-3 py-2 w-full sm:w-auto" style="background:var(--surface-2);border:1px solid var(--glass-border);color:var(--text-secondary)">
+              <span class="whitespace-nowrap">Sort by</span>
+              <select id="faSortSelect" class="bg-transparent border-none text-xs sm:text-sm text-gray-100 focus:outline-none cursor-pointer" style="font-family:var(--font-body)">
+                <option value="value" class="bg-gray-900">Highest Value</option>
+                <option value="total" class="bg-gray-900">Highest Total Points</option>
+                <option value="ppg" class="bg-gray-900">Highest Avg PPG</option>
+              </select>
+            </label>
             <label class="flex items-center gap-2 text-xs rounded-lg px-3 py-2 w-full sm:w-auto" style="background:var(--surface-2);border:1px solid var(--glass-border);color:var(--text-secondary)">
               <input id="faActiveOnly" type="checkbox" class="accent-accent">
               Active only
@@ -2314,7 +2551,6 @@
         <div id="trendingBar" class="rounded-xl overflow-hidden" style="background:var(--surface-2);border:1px solid var(--glass-border);display:none">
           <div style="padding:8px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)">
             <span style="font-size:12px;font-weight:700;color:var(--accent)">🔥 Trending</span>
-            <span style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono)">Most added players (24h)</span>
             <button onclick="document.getElementById('trendingBar').style.display='none'" style="margin-left:auto;background:none;border:none;color:var(--text-muted);font-size:14px;cursor:pointer">✕</button>
           </div>
           <div id="trendingList" style="padding:8px 14px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none"></div>
@@ -2331,8 +2567,8 @@
       <section id="viewDef" class="h-full hidden flex flex-col p-4 gap-2 overflow-hidden">
         <div class="flex items-end justify-between gap-4 shrink-0">
           <div>
-            <div class="text-2xl font-bold text-white">NFL DEFENSES</div>
-            <div class="text-sm text-accent" >DEFENSIVE RANKINGS & MATCHUP ANALYSIS</div>
+            <div class="text-2xl font-bold text-white">NFL Defenses</div>
+            <div class="text-sm text-accent" >Defensive rankings and matchup analysis: Lower = Better</div>
           </div>
         </div>
 
@@ -2351,8 +2587,7 @@
       <section id="viewInsights" class="h-full flex flex-col p-4 gap-2 hidden overflow-hidden">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 shrink-0">
           <div>
-            <div class="text-2xl font-bold text-white flex items-center gap-2"><span></span> LEAGUE ANALYTICS</div>
-            <div class="text-sm text-accent" >ADVANCED ANALYTICS: ALL-PLAY, EXPECTED WINS, LUCK & MORE</div>
+            <div class="text-2xl font-bold text-white flex items-center gap-2"><span></span> League Analytics</div>
           </div>
           <button id="btnInsightsExport" class="px-3 py-2 rounded-lg text-sm font-semibold w-full sm:w-auto flex items-center gap-2 justify-center transition-all" style="background:var(--surface-3);color:var(--text-primary);border:1px solid var(--glass-border)">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -2364,8 +2599,7 @@
           <!-- League Standings Table -->
           <div class="rounded-2xl overflow-hidden ui2k-panel">
             <div class="p-4 border-b border-accent/20">
-              <div class="text-white font-bold" >LEAGUE STANDINGS & METRICS</div>
-              <div class="text-xs text-accent/70 font-mono">Sorted by expected wins (xW) - click headers to sort</div>
+              <div class="text-white font-bold" >League standings and metrics</div>
             </div>
             <div class="overflow-x-auto">
               <table class="w-full text-sm">
@@ -2427,7 +2661,6 @@
           <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
             <div class="p-4 border-b border-gray-800">
               <div class="text-white font-bold">Lineup Management</div>
-              <div class="text-xs text-gray-400 font-mono">Optimal points, bench points, and start/sit efficiency (hybrid stats/projections)</div>
             </div>
             <div class="p-4 space-y-4">
               <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
@@ -2467,7 +2700,6 @@
           <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
             <div class="p-4 border-b border-gray-800">
               <div class="text-white font-bold">Positional Scoring Baselines</div>
-              <div class="text-xs text-gray-400 font-mono">Season-to-date starter scoring (Median / P25 / P75) using actual starter stats</div>
             </div>
             <div class="p-4 overflow-x-auto">
               <table class="w-full text-sm">
@@ -2490,7 +2722,6 @@
           <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
             <div class="p-4 border-b border-gray-800">
               <div class="text-white font-bold">Defense vs Role Effectiveness</div>
-              <div class="text-xs text-gray-400 font-mono">Top scorer per position vs each defense. PPG = avg of top-1 player per game. L4 = last 4 games (hover for breakdown).</div>
             </div>
             <div class="p-4 space-y-3">
               <div class="flex flex-wrap items-center gap-2">
@@ -2534,7 +2765,6 @@
           <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden" id="powerRankingsPanel">
             <div class="p-4 border-b border-gray-800">
               <div class="text-white font-bold flex items-center gap-2">⚡ Power Rankings</div>
-              <div class="text-xs text-gray-400 font-mono">Position Composite Score.</div>
             </div>
             <div class="p-4" id="powerRankingsContent"></div>
           </div>
@@ -2543,7 +2773,6 @@
           <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
             <div class="p-4 border-b border-gray-800">
               <div class="text-white font-bold flex items-center gap-2">🏆 Season Records</div>
-              <div class="text-xs text-gray-400 font-mono">Notable performances and milestones this season</div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 p-4" id="seasonRecordsContent"></div>
           </div>
@@ -2571,15 +2800,6 @@
             </div>
           </div>
 
-          <!-- Matchup Difficulty Remaining -->
-          <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-            <div class="p-4 border-b border-gray-800">
-              <div class="text-white font-bold flex items-center gap-2">📅 Remaining Schedule Difficulty</div>
-              <div class="text-xs text-gray-400 font-mono">Remaining opponents ranked by current all-play strength</div>
-            </div>
-            <div class="p-4" id="scheduleDiffContent"></div>
-          </div>
-
           <!-- Weekly Scoring Trends -->
           <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4">
             <div class="text-white font-bold mb-3">Weekly Scoring Trends</div>
@@ -2596,7 +2816,6 @@
             <div class="p-4 border-b border-gray-800 flex flex-col sm:flex-row sm:items-center gap-3 sm:justify-between">
               <div>
                 <div class="text-white font-bold flex items-center gap-2">AI League Guidance</div>
-                <div class="text-xs text-gray-400 font-mono">Live NFL news + your current rosters + free-agent/trending context</div>
               </div>
               <div class="flex items-center gap-2">
                 <button id="aiInsightsRefreshNews" class="px-3 py-1.5 rounded-lg text-xs font-semibold madden-tab">Refresh News</button>
@@ -2615,10 +2834,10 @@
               </div>
               <div class="bg-gray-950/40 border border-gray-800 rounded-xl p-3 flex flex-col min-h-0">
                 <div class="flex items-center justify-between gap-2 mb-2">
-                  <div class="text-xs text-gray-300 font-bold uppercase tracking-wider">AI Output</div>
-                  <div id="aiInsightsModelStatus" class="text-[10px] text-gray-500 font-mono">Idle</div>
+                  <div class="text-xs text-gray-300 font-bold uppercase tracking-wider">AI Report</div>
+                  <div id="aiInsightsModelStatus" class="text-[10px] text-gray-500 font-mono"></div>
                 </div>
-                <pre id="aiInsightsOutput" class="text-xs text-gray-200 font-mono whitespace-pre-wrap leading-relaxed flex-1 overflow-y-auto pr-1">Click "Generate Full AI Report" to create a current league guidance report.</pre>
+                <pre id="aiInsightsOutput" class="text-xs text-gray-200 font-mono whitespace-pre-wrap leading-relaxed flex-1 overflow-y-auto pr-1"></pre>
                 <div id="aiInsightsLastUpdated" class="mt-2 text-[10px] text-gray-500 font-mono"></div>
               </div>
             </div>
@@ -2631,8 +2850,8 @@
       <section id="viewHistory" class="h-full flex flex-col p-4 gap-2 hidden">
         <div class="flex items-end justify-between gap-4">
           <div>
-            <div class="text-2xl font-bold text-white tracking-tight" id="historyHeaderTitle">HISTORICAL ROSTERS</div>
-            <div class="text-sm text-accent" id="historyHeaderSubtitle" >WEEKLY LINEUP SNAPSHOTS</div>
+            <div class="text-2xl font-bold text-white tracking-tight" id="historyHeaderTitle">League History</div>
+            <div class="text-sm text-accent" id="historyHeaderSubtitle" >Weekly lineup snapshots</div>
           </div>
           <div class="flex items-center gap-2">
             <button id="optSettingsToggle" class="hidden px-3 py-1.5 rounded-lg text-xs font-semibold madden-tab">Settings</button>
@@ -2643,7 +2862,7 @@
           </div>
         </div>
 
-        <div id="optSettingsPanel" class="hidden bg-gray-900/80 border border-gray-800/50 rounded-2xl p-4 shadow-xl shadow-black/20 ui2k-panel">
+        <div id="optSettingsPanel" class="hidden bg-gray-900/80 border border-gray-800/50 rounded-2xl p-4 shadow-xl shadow-black/20 ui2k-panel history-soft-shell">
           <div class="flex items-center justify-between gap-3 mb-3">
             <div>
               <div class="text-sm font-bold text-white">Optimal weighting sliders</div>
@@ -2731,8 +2950,8 @@
 
         <!-- Team roster for history -->
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 overflow-hidden flex-1" id="historyMainContent">
-          <div class="xl:col-span-2 bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel">
-            <div class="p-4 border-b border-accent/20 flex items-center justify-between bg-black/40">
+          <div class="xl:col-span-2 bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel history-soft-shell">
+            <div class="p-4 border-b border-accent/20 flex items-center justify-between bg-black/40 history-soft-header">
               <div class="flex items-center gap-3">
                 <div class="madden-status-bar h-10"></div>
                 <div>
@@ -2745,8 +2964,8 @@
             <div class="flex-1 overflow-y-auto overflow-x-hidden p-4" id="historyRosterList"></div>
           </div>
 
-          <div class="bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel">
-            <div class="p-4 border-b border-accent/20 bg-black/40">
+          <div class="bg-gray-900/80 border border-gray-800/50 rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/20 ui2k-panel history-soft-shell">
+            <div class="p-4 border-b border-accent/20 bg-black/40 history-soft-header">
               <div class="flex items-center gap-3">
                 <div class="madden-status-bar h-10"></div>
                 <div>
@@ -2766,7 +2985,7 @@
           <div class="flex items-center justify-between mb-5">
             <div>
               <div class="text-2xl font-bold text-white"> SETTINGS</div>
-              <div class="text-sm text-accent" >CONFIGURE YOUR LEAGUE DATA & PREFERENCES</div>
+              <div class="text-sm text-accent" >Configure your league data and preferences</div>
             </div>
           </div>
 
@@ -2818,7 +3037,7 @@
               </div>
 
               <div>
-                <label class="block text-xs text-accent mb-1" >SEASON TYPE</label>
+                <label class="block text-xs text-accent mb-1" >Season type</label>
                 <select id="settingsSeasonType" class="w-full rounded-xl bg-black/50 border border-accent/20 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-accent/40">
                   <option value="regular">regular</option>
                   <option value="pre">pre</option>
@@ -2828,7 +3047,7 @@
               </div>
 
               <div>
-                <label class="block text-xs text-accent mb-1" >AUTO WEEK SELECTION</label>
+                <label class="block text-xs text-accent mb-1" >Auto week selection</label>
                 <select id="settingsWeekMode" class="w-full rounded-xl bg-black/50 border border-accent/20 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-accent/40">
                   <option value="max_week">Use max week (latest available)</option>
                   <option value="last_scored">Use last scored week</option>
@@ -2943,9 +3162,6 @@
               </div>
             </div>
 
-            <div class="mt-4 text-xs text-gray-500 font-mono">
-              Note: If the week hasn't been played yet (no stats), "Actual" is blank and status is "Not played".
-            </div>
           </div>
         </div>
       </div>
@@ -3039,8 +3255,9 @@ var DEFAULT_SEASON_CHOICE = "2025";
 var SAVED_SEASON_CHOICE = null;
 try { SAVED_SEASON_CHOICE = localStorage.getItem("sleeper_app_season_choice"); } catch(e) {}
 var INITIAL_SEASON_CHOICE = (SAVED_SEASON_CHOICE && SEASON_LEAGUES[SAVED_SEASON_CHOICE]) ? SAVED_SEASON_CHOICE : DEFAULT_SEASON_CHOICE;
-var AI_API_KEY = "AIzaSyBK81GyhbmP6IbThmApxjpwNVRvDZDIN1A";
-var AI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+var GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
+var GROQ_MODEL = "llama-3.3-70b-versatile";
+var GROQ_API_KEY = "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";
 
 /**
  * Main application object containing all state, configuration, and methods
@@ -3118,6 +3335,7 @@ playersById: {},
     selectedRosterId: null,
     selectedWeek: null,
     selectedFA: "QB",
+    faSortKey: "value",
     selectedConference: "AFC",
     chart: null,
     pfChart: null,
@@ -3146,7 +3364,7 @@ playersById: {},
     var ids = ['hdrStatus', 'hdrProgress', 'seasonSelect', 'hdrLeague', 'hdrMeta', 'weekSelect',
                'mobileNavToggle', 'mobileNavBackdrop',
                'teamTabs', 'teamTitle', 'teamSubtitle', 'btnRosterRefresh', 'rosterList', 'compareBox',
-               'matchupGrid', 'matchupsWeekSelect', 'faTabs', 'faList', 'faSearch', 'faActiveOnly', 'playerModal', 'matchupModal',
+               'matchupGrid', 'matchupsWeekSelect', 'faTabs', 'faList', 'faSearch', 'faSortSelect', 'faActiveOnly', 'playerModal', 'matchupModal',
                'pmName', 'pmMeta', 'pmRank', 'pmBoomBustOverall', 'pmChart', 'pmTable',
                'pmEfficiencySection', 'pmEfficiencyGrid', 'pmValueSection', 'pmValueGrid', 'pmMatchupSection', 'pmMatchupGrid',
                'mmTitle', 'mmTeamA', 'mmTeamB', 'mmTotalA', 'mmTotalB', 'mmListA', 'mmListB',
@@ -3501,8 +3719,7 @@ playersById: {},
     fullName = String(fullName || "").trim() || "Unknown Player";
 
     var team = safeUpper(p.team || disp.team || item.team);
-    var pos = safeUpper(p.position || (p.fantasy_positions && p.fantasy_positions[0]) || disp.pos || item.pos);
-    var teamPos = (team ? team : "—") + (pos ? (" " + pos) : "");
+    var teamPos = team || "—";
 
     var age = num(p.age);
     if (age == null && p.birth_date) {
@@ -3646,6 +3863,10 @@ playersById: {},
           '</div>',
         '</div>',
         '<div class="pc-main">',
+          '<div class="pc-pill-row">',
+            '<span class="pc-pill ' + esc(availCls) + '" title="' + esc(avail) + '">' + esc(availDisplay) + '</span>',
+            '<span class="pc-pill pc-pill--trend ' + esc(statusPillClass()) + '"><span>' + esc(statusArrow()) + '</span><span>' + esc(statusLabel.toUpperCase()) + '</span></span>',
+          '</div>',
           '<div class="pc-meta-row">',
             '<div class="pc-rank-grid">',
               '<div class="pc-rank-cell">',
@@ -3661,10 +3882,6 @@ playersById: {},
                 '<div class="pc-rank-value pc-rank-value-points">' + esc(totalPts) + '</div>',
               '</div>',
             '</div>',
-          '</div>',
-          '<div class="pc-pill-row">',
-            '<span class="pc-pill ' + esc(availCls) + '" title="' + esc(avail) + '">' + esc(availDisplay) + '</span>',
-            '<span class="pc-pill pc-pill--trend ' + esc(statusPillClass()) + '"><span>' + esc(statusArrow()) + '</span><span>' + esc(statusLabel.toUpperCase()) + '</span></span>',
           '</div>',
           '<div class="pc-context-row">',
             '<div class="pc-rates">',
@@ -7277,14 +7494,14 @@ self.data.playerDeltaRanks = deltaRanks;
         // Weighted season value (0..1), tuned for fairness:
         // - Production and durability drive the score
         // - Recency and usage refine the score
-        // - Popularity and age are de-emphasized
+        // - Popularity is de-emphasized; age applies a modest dynasty-aware adjustment
         var scarcityAdj = 0.02 * self.clamp01((scarcityMult - 1.0) / 0.12);
         
         // Base 0..1 score before team-context multiplier.
         var raw =
-          0.22  * ppgRankP +       // PPG rank (highest priority)
-          0.18  * totalRankP +     // Total-points rank (durability context)
-          0.06  * ppgP +           // Raw PPG percentile
+          0.20  * ppgRankP +       // PPG rank (highest priority)
+          0.165 * totalRankP +     // Total-points rank (durability context)
+          0.055 * ppgP +           // Raw PPG percentile
           0.05  * totalP +         // Raw total-points percentile
           0.08  * l8P +            // Last-8 production
           0.04  * recP +           // Last-8 vs season momentum (sample-adjusted)
@@ -7300,7 +7517,7 @@ self.data.playerDeltaRanks = deltaRanks;
           0.007 * trndP +          // Usage trend
           0.005 * l4P +            // Very recent short-window signal
           0.015 * m3.snapAdj +     // Snap %
-          0.0   * (m3.agePenalty || 0) +
+          0.04  * (isFinite(m3.ageAdj) ? m3.ageAdj : 0.5) + // Age curve (dynasty-aware)
           scarcityAdj;
 
         raw = raw * teamAdj * passSupportBoost;
@@ -7812,6 +8029,7 @@ getPlayerDeltaRank: function(pid) {
       selectedRosterId: null,
       selectedWeek: null,
       selectedFA: "QB",
+      faSortKey: "value",
       selectedConference: "AFC",
       chart: null,
       pfChart: null,
@@ -7840,7 +8058,7 @@ getPlayerDeltaRank: function(pid) {
       if (this.dom.historyWeekSelect) this.dom.historyWeekSelect.innerHTML = '';
       if (this.dom.defRoleSelect) { this.dom.defRoleSelect.innerHTML = ''; this.dom.defRoleSelect._populated = false; }
       if (this.dom.aiInsightsNewsList) this.dom.aiInsightsNewsList.innerHTML = '<div class="text-xs text-gray-500 font-mono">News feed not loaded yet.</div>';
-      if (this.dom.aiInsightsOutput) this.dom.aiInsightsOutput.textContent = 'Click "Generate Full AI Report" to create a current league guidance report.';
+      if (this.dom.aiInsightsOutput) this.dom.aiInsightsOutput.textContent = '';
     } catch(e) { console.warn("DOM cleanup error:", e); }
     
     // Update season selector to show new value
@@ -8303,6 +8521,13 @@ getPlayerDeltaRank: function(pid) {
       }, 250);
       this.dom.faSearch.oninput = function() { debouncedFASearch(); };
     }
+    if (this.dom.faSortSelect) {
+      try { this.dom.faSortSelect.value = self.ui.faSortKey || "value"; } catch(e) {}
+      this.dom.faSortSelect.onchange = function() {
+        self.ui.faSortKey = String(this.value || "value");
+        if (self.ui.currentView === "fa") self.renderFA();
+      };
+    }
     if (this.dom.faActiveOnly) {
       this.dom.faActiveOnly.onchange = function() { if (self.ui.currentView === "fa") self.renderFA(); };
     }
@@ -8737,11 +8962,87 @@ getPlayerDeltaRank: function(pid) {
     return lines.join("\n");
   },
 
+  normalizeAIReportText: function(text) {
+    var raw = String(text || "").replace(/\r\n?/g, "\n").trim();
+    if (!raw) return "";
+
+    raw = raw
+      .replace(/```[a-zA-Z0-9_-]*\n?/g, "")
+      .replace(/```/g, "")
+      .replace(/\[\s*:\s*#\s*(\d+)\s*\]/g, "[#$1]")
+      .replace(/\[\s*#\s*(\d+)\s*\]/g, "[#$1]")
+      .replace(/^\s*#{1,6}\s*/gm, "")
+      .replace(/^\s*\*\*(.+?)\*\*\s*:?$/gm, "$1")
+      .replace(/^\s*[*•]\s+/gm, "- ")
+      .replace(/\n{3,}/g, "\n\n");
+
+    var seen = {};
+    var lines = raw.split("\n").map(function(line) {
+      var trimmed = line.replace(/\s+$/g, "");
+      if (!trimmed) return "";
+      var normalized = trimmed.replace(/\s+/g, " ").trim().toLowerCase();
+      if (/^- /.test(trimmed)) {
+        if (seen[normalized]) return "";
+        seen[normalized] = 1;
+      }
+      return trimmed;
+    }).filter(function(line, idx, arr) {
+      if (line) return true;
+      return idx > 0 && arr[idx - 1] !== "";
+    });
+
+    return lines.join("\n").trim();
+  },
+
+  makeRosterSectionHeader: function(title, opts) {
+    opts = opts || {};
+    var header = document.createElement("div");
+    header.className = "roster-block-header";
+
+    var main = document.createElement("div");
+    main.className = "roster-block-header-main";
+
+    var dot = document.createElement("span");
+    dot.className = "roster-block-dot" + (opts.muted ? " roster-block-dot--muted" : "");
+    main.appendChild(dot);
+
+    var label = document.createElement("span");
+    label.className = "roster-block-title";
+    label.textContent = title;
+    main.appendChild(label);
+    header.appendChild(main);
+
+    if (opts.meta) {
+      var meta = document.createElement("div");
+      meta.className = "roster-block-meta";
+      meta.textContent = opts.meta;
+      header.appendChild(meta);
+    }
+
+    return header;
+  },
+
+  makeRosterPositionHeader: function(label) {
+    var header = document.createElement("div");
+    header.className = "roster-position-header";
+
+    var bar = document.createElement("span");
+    bar.className = "roster-position-bar";
+    header.appendChild(bar);
+
+    var title = document.createElement("span");
+    title.className = "roster-position-title";
+    title.textContent = label;
+    header.appendChild(title);
+
+    return header;
+  },
+
   generateAIInsights: function() {
     var self = this;
     if (self.ui.aiBusy) return;
     self.ui.aiBusy = true;
-    if (self.dom.aiInsightsModelStatus) self.dom.aiInsightsModelStatus.textContent = "Generating…";
+    if (self.dom.aiInsightsModelStatus) self.dom.aiInsightsModelStatus.textContent = "Groq generating…";
     if (self.dom.aiInsightsOutput) self.dom.aiInsightsOutput.textContent = "Generating full AI report…";
 
     var run = function() {
@@ -8772,23 +9073,29 @@ getPlayerDeltaRank: function(pid) {
         "Current date/time: " + (new Date()).toISOString(),
         "League: " + leagueName + " | Season: " + season + " | Week: " + week,
         "",
-        "Task:",
-        "1) Analyze current NFL atmosphere from the pulled articles and extracted article context.",
-        "2) Translate that into actionable guidance for THIS league's rostered players.",
-        "3) Call out potential new stars / breakout players and waiver opportunities.",
-        "4) Flag risky players (injury role changes, depth-chart threats, poor outlook).",
-        "5) Use article references like [#3], [#8] in all claims.",
-        "6) Cover ALL teams in the league.",
-        "7) Explain WHY each article matters for fantasy outcomes (targets, role, usage, scheme, OL impact, injury, contract/trade implications).",
+        "Write a clean, structured fantasy report for THIS league only.",
+        "Focus on actionable takeaways for current rosters, realistic waivers, and role/value changes that actually matter.",
+        "If a news item is mostly offseason noise, draft speculation, or generic league chatter, either omit it or mention it once briefly.",
         "",
-        "Output format:",
-        "- Article Deep Dive (10-12 bullets): each bullet must include: what changed, fantasy impact, affected player groups, and [#] refs",
-        "- League-wide climate (8 bullets, each with [#] references)",
-        "- Team-by-team guidance (for every team: 2-3 bullets each with [#] references)",
-        "- New Stars / Emerging Targets (bullet list)",
-        "- Risk Watchlist (bullet list)",
-        "- Waiver Priorities (top 10, ranked with short why and [#] refs)",
-        "- Article Coverage Map: list every article number provided and where it was used",
+        "Use this exact plain-text format and heading order:",
+        "TOP TAKEAWAYS",
+        "- 5 to 7 bullets max",
+        "- Each bullet: what changed, why it matters for fantasy, who it affects, citation",
+        "",
+        "TEAM-BY-TEAM",
+        "Team: <team name>",
+        "- 1 to 2 concise bullets max per fantasy team",
+        "- Make each team section specific to that roster whenever possible",
+        "",
+        "WAIVER PRIORITIES",
+        "- 5 to 7 ranked bullets max",
+        "- Only include realistic adds or stash-worthy names with a clear reason",
+        "",
+        "RISK WATCH",
+        "- 4 to 6 bullets max",
+        "",
+        "SOURCE MAP",
+        "- One bullet per article used: [#] short note on how it was used",
         "",
         "Latest headlines:",
         news || "No headlines available.",
@@ -8796,27 +9103,33 @@ getPlayerDeltaRank: function(pid) {
         "Current league roster context (top-valued players per team, '*' = starter):",
         rosterContext || "No roster context available.",
         "",
-        "Important constraints:",
-        "- Do not just paraphrase headlines; use extracted article context details.",
-        "- Do not focus on only one player.",
-        "- Ensure broad coverage across multiple teams and positions.",
-        "- Every bullet should include at least one [#] article reference.",
-        "- If article evidence is weak, explicitly say uncertainty.",
-        "- Keep it concise but complete. Do not truncate mid-team."
+        "Rules:",
+        "- Use citation format exactly like [#3]. Never use [:#3].",
+        "- Do not repeat the same article takeaway across multiple sections unless it changes a different recommendation.",
+        "- Do not write vague filler like 'could impact fantasy value' without naming the actual fantasy effect.",
+        "- Prefer current NFL player roles, injuries, usage, contracts, QB changes, coaching changes, and depth-chart movement.",
+        "- If evidence is weak, say 'Low confidence' and keep it brief.",
+        "- Keep every bullet to 1 or 2 sentences.",
+        "- Avoid markdown bolding. Plain text only.",
+        "- Cover every fantasy team, but do not force fake insights if a team has no strong tie to the news."
       ].join("\n");
 
       var callModel = function(textPrompt) {
         var reqBody = {
-          contents: [{ parts: [{ text: textPrompt }] }],
-          generationConfig: {
-            temperature: 0.25,
-            topP: 0.9,
-            maxOutputTokens: 4096
-          }
+          model: GROQ_MODEL,
+          messages: [
+            { role: "user", content: textPrompt }
+          ],
+          temperature: 0.15,
+          top_p: 0.9,
+          max_tokens: 4096
         };
-        return fetch(AI_API_URL + "?key=" + encodeURIComponent(AI_API_KEY), {
+        return fetch(GROQ_API_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + GROQ_API_KEY
+          },
           body: JSON.stringify(reqBody)
         }).then(function(r) {
           if (!r.ok) throw new Error("AI request failed (HTTP " + r.status + ")");
@@ -8825,11 +9138,10 @@ getPlayerDeltaRank: function(pid) {
           var text = "";
           var finishReason = "";
           try {
-            var cands = (resp && resp.candidates) ? resp.candidates : [];
-            var first = cands[0] || {};
-            finishReason = String(first.finishReason || "");
-            var parts = (first && first.content && first.content.parts) ? first.content.parts : [];
-            text = parts.map(function(p) { return p && p.text ? String(p.text) : ""; }).join("\n").trim();
+            var choices = (resp && resp.choices) ? resp.choices : [];
+            var first = choices[0] || {};
+            finishReason = String(first.finish_reason || "");
+            text = String(first && first.message && first.message.content ? first.message.content : "").trim();
           } catch(e) {}
           if (!text) throw new Error("AI response was empty.");
           return { text: text, finishReason: finishReason };
@@ -8844,13 +9156,13 @@ getPlayerDeltaRank: function(pid) {
           var needsContinuation = (finish.indexOf("MAX") >= 0 || finish.indexOf("LENGTH") >= 0);
           if (!needsContinuation || continueCount >= 2) return Promise.resolve(fullText);
           continueCount++;
-          if (self.dom.aiInsightsModelStatus) self.dom.aiInsightsModelStatus.textContent = "Generating continuation " + (continueCount + 1) + "/3…";
+          if (self.dom.aiInsightsModelStatus) self.dom.aiInsightsModelStatus.textContent = "Groq continuation " + (continueCount + 1) + "/3…";
           var continuationPrompt = [
-            "Continue the previous report from where it ended.",
+            "Continue the same plain-text report from where it ended.",
             "Do not repeat lines already written.",
-            "Start at the next unfinished heading/bullet.",
-            "Prioritize missing teams, missing article coverage, and missing waiver/risk details.",
-            "Use [#] references consistently.",
+            "Resume at the next unfinished heading, team, or bullet.",
+            "Preserve the exact heading order and citation format [#3].",
+            "Keep bullets short and non-repetitive.",
             "",
             "Previous partial output:",
             fullText
@@ -8864,11 +9176,12 @@ getPlayerDeltaRank: function(pid) {
         };
         return continueIfNeeded(first.finishReason);
       }).then(function(text) {
+        text = self.normalizeAIReportText(text);
         self.data.aiLastBrief = text;
         self.data.aiLastBriefAt = new Date().toLocaleString();
         if (self.dom.aiInsightsOutput) self.dom.aiInsightsOutput.textContent = text;
         if (self.dom.aiInsightsLastUpdated) self.dom.aiInsightsLastUpdated.textContent = "Last brief: " + self.data.aiLastBriefAt;
-        if (self.dom.aiInsightsModelStatus) self.dom.aiInsightsModelStatus.textContent = "Ready";
+        if (self.dom.aiInsightsModelStatus) self.dom.aiInsightsModelStatus.textContent = "";
       });
     };
 
@@ -9119,7 +9432,7 @@ getPlayerDeltaRank: function(pid) {
         '<span style="font-size:9px;color:var(--text-muted);font-family:var(--font-mono)">' + self.escapeHtml(team) + '</span>' +
         '<span style="font-size:9px;color:var(--accent);font-family:var(--font-mono);font-weight:600">+' + count + '</span>';
       div.addEventListener("click", (function(id) { return function() { APP.openPlayerModal(id); }; })(pid));
-      div.addEventListener("mouseover", function() { this.style.borderColor = "rgba(255,107,61,0.34)"; });
+      div.addEventListener("mouseover", function() { this.style.borderColor = "rgba(96,165,250,0.34)"; });
       div.addEventListener("mouseout", function() { this.style.borderColor = "var(--glass-border)"; });
       list.appendChild(div);
     });
@@ -9140,12 +9453,12 @@ getPlayerDeltaRank: function(pid) {
     // History header (H = actual roster, O = optimal lineup)
     if (this.dom.historyHeaderTitle) {
       if (this.ui.currentView === "optimal") {
-        this.dom.historyHeaderTitle.textContent = "OPTIMAL LINEUPS";
-        if (this.dom.historyHeaderSubtitle) this.dom.historyHeaderSubtitle.textContent = "WEIGHTED LINEUP SUGGESTIONS BY WEEK";
+        this.dom.historyHeaderTitle.textContent = "Optimal Lineups";
+        if (this.dom.historyHeaderSubtitle) this.dom.historyHeaderSubtitle.textContent = "Weighted lineup suggestions by week";
         this.ui.historyMode = "best";
       } else if (this.ui.currentView === "history") {
-        this.dom.historyHeaderTitle.textContent = "HISTORICAL ROSTERS";
-        if (this.dom.historyHeaderSubtitle) this.dom.historyHeaderSubtitle.textContent = "WEEKLY LINEUP SNAPSHOTS";
+        this.dom.historyHeaderTitle.textContent = "League History";
+        if (this.dom.historyHeaderSubtitle) this.dom.historyHeaderSubtitle.textContent = "Weekly lineup snapshots";
         this.ui.historyMode = "roster";
       }
     }
@@ -9395,33 +9708,11 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
       return self.buildPlayerCardElement(item, { showSlot: showSlot });
     };
 
-    // Render section header
-    var renderSectionHeader = function(title, subtitle, icon) {
-      var header = document.createElement("div");
-      header.className = "flex items-center gap-2 mb-3 mt-6 first:mt-0";
-      header.innerHTML = 
-        '<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent/20 to-gray-800/20 border border-accent/30 flex items-center justify-center">' +
-          '<span class="text-accent text-xs font-bold">' + icon + '</span>' +
-        '</div>' +
-        '<div>' +
-          '<div class="text-sm font-bold text-white">' + title + '</div>' +
-          (subtitle ? '<div class="text-[10px] text-gray-500 font-mono">' + subtitle + '</div>' : '') +
-        '</div>';
-      return header;
-    };
-
     // Render starters grouped by position
     var startersSection = document.createElement("div");
-    startersSection.className = "space-y-2";
 
     // Add main starters header
-    var mainHeader = document.createElement("div");
-    mainHeader.className = "flex items-center justify-between pb-2 border-b border-gray-800 mb-4";
-      mainHeader.innerHTML = 
-      '<div class="flex items-center gap-2">' +
-        '<div class="w-2 h-2 rounded-full bg-accent"></div>' +
-        '<span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Active Starters</span>' +
-      '</div>';
+    var mainHeader = self.makeRosterSectionHeader("Active Starters");
     startersSection.appendChild(mainHeader);
 
     // Render each position group
@@ -9442,21 +9733,19 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
         else if (pp.status.label === "Major Bust") counts.mbust++;
       });
 
-      var posHeader = document.createElement("div");
-      posHeader.className = "text-[11px] font-bold text-gray-500 uppercase tracking-wider mt-4 mb-2 flex items-center justify-between gap-2";
-      posHeader.innerHTML =
-        '<div class="flex items-center gap-2 min-w-0">' +
-          '<span class="w-1 h-3 rounded bg-accent/50"></span>' +
-          '<span class="truncate">' + posLabel + '</span>' +
-        '</div>';
-      startersSection.appendChild(posHeader);
+      var section = document.createElement("div");
+      section.className = "roster-position-section";
+
+      var posHeader = self.makeRosterPositionHeader(posLabel);
+      section.appendChild(posHeader);
 
       var posGrid = document.createElement("div");
       posGrid.className = "ui2k-card-grid-roster";
       players.forEach(function(p) {
         posGrid.appendChild(renderPlayerCard(p, true));
       });
-      startersSection.appendChild(posGrid);
+      section.appendChild(posGrid);
+      startersSection.appendChild(section);
     });
 
     list.appendChild(startersSection);
@@ -9466,14 +9755,7 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
       var benchSection = document.createElement("div");
       benchSection.className = "mt-8";
       
-      var benchHeader = document.createElement("div");
-      benchHeader.className = "flex items-center justify-between pb-2 border-b border-gray-800 mb-4";
-      benchHeader.innerHTML = 
-        '<div class="flex items-center gap-2">' +
-          '<div class="w-2 h-2 rounded-full bg-gray-500"></div>' +
-          '<span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Bench</span>' +
-          '<span class="text-[10px] text-gray-600 font-mono">(' + activeBench.length + ' players)</span>' +
-        '</div>';
+      var benchHeader = self.makeRosterSectionHeader("Bench", { muted: true, meta: "(" + activeBench.length + " players)" });
       benchSection.appendChild(benchHeader);
 
       var benchGrid = document.createElement("div");
@@ -9918,14 +10200,14 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
       var subtitleHtml = subtitle ? ('<div class="comparison-subtitle mt-1 text-xs text-gray-500 font-mono">' + subtitle + '</div>') : '';
       var tableTopClass = subtitle ? "mt-3" : "mt-2";
 
-      var headerCells = posList.map(function(p) { return '<th class="text-center px-1 py-1.5 w-[7%] bg-gray-950">' + p + '</th>'; }).join("");
+      var headerCells = posList.map(function(p) { return '<th class="text-center px-1 py-1.5 w-[7%] history-soft-cell">' + p + '</th>'; }).join("");
       
       wrap.innerHTML = 
         '<div class="comparison-title text-sm font-bold text-white">' + title + '</div>' +
         subtitleHtml +
         '<div class="comparison-table-wrap ' + tableTopClass + ' max-h-[250px] border border-gray-800 rounded-lg">' +
-          '<table class="comparison-table w-full text-[8.5px] table-fixed tabular-nums">' +
-            '<thead class="text-[8.5px] uppercase text-gray-400 sticky top-0 z-10">' +
+          '<table class="comparison-table w-full text-[9.5px] table-fixed tabular-nums">' +
+            '<thead class="text-[9px] uppercase text-gray-400 sticky top-0 z-10">' +
               '<tr class="bg-gray-950">' +
                 '<th class="text-left px-2 py-1.5 w-[33%] bg-gray-950">Team</th>' +
                 headerCells +
@@ -9954,11 +10236,11 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
         posList.forEach(function(pos) {
           var val = team.s.posTotals[pos] || 0;
           var color = self.getHeatmapColor(val, selectedS.posTotals[pos], posValues[pos]);
-          html += '<td class="px-0.5 py-1 text-center text-[8.5px] font-mono ' + color.text + '" style="background:' + color.bg + '">' + val.toFixed(0) + '</td>';
+          html += '<td class="px-0.5 py-1 text-center text-[9.5px] font-mono ' + color.text + '" style="background:' + color.bg + '">' + val.toFixed(0) + '</td>';
         });
         
         var totalColor = self.getHeatmapColor(team.s.total || 0, selectedS.total, totalValues, true);
-        html += '<td class="px-2 py-1.5 text-center text-[8.5px] font-mono font-bold ' + totalColor.text + ' hidden md:table-cell" style="background:' + totalColor.bg + '">' + (team.s.total || 0).toFixed(0) + '</td>';
+        html += '<td class="px-2 py-1.5 text-center text-[9.5px] font-mono font-bold ' + totalColor.text + ' hidden md:table-cell" style="background:' + totalColor.bg + '">' + (team.s.total || 0).toFixed(0) + '</td>';
         
         tr.innerHTML = html;
         body.appendChild(tr);
@@ -10152,27 +10434,50 @@ renderFA: function() {
 
     var doRender = function() {
       var totals = self.data.seasonTotals || {};
+      var valueMap = self.data.playerValues || {};
+      var metricsMap = self.data.playerValueMetrics || {};
       var week = String(self.ui.selectedWeek);
       var statsMap = self.data.weekStats[week] || {};
       var projMap = self.data.weekProj[week] || {};
       var searchTerm = (self.dom.faSearch && self.dom.faSearch.value) ? String(self.dom.faSearch.value).trim().toLowerCase() : "";
       var activeOnly = !!(self.dom.faActiveOnly && self.dom.faActiveOnly.checked);
+      var sortKey = String((self.ui && self.ui.faSortKey) || (self.dom.faSortSelect && self.dom.faSortSelect.value) || "value");
+      if (self.dom.faSortSelect && self.dom.faSortSelect.value !== sortKey) self.dom.faSortSelect.value = sortKey;
       
       // 1. Get ALL players (Rostered + FA)
       var allPlayers = Object.values(self.data.playersById);
+      var rankedPlayers = allPlayers.slice();
 
-      // 2. Sort ALL players by Season Total Points (Descending)
+      var sortMetric = function(player, key) {
+        if (!player) return 0;
+        var pid = String(player.player_id);
+        if (key === "ppg") {
+          return (metricsMap[pid] && isFinite(metricsMap[pid].ppg)) ? Number(metricsMap[pid].ppg) : 0;
+        }
+        if (key === "total") {
+          return Number(totals[pid] || 0);
+        }
+        return (valueMap[pid] && isFinite(valueMap[pid].score)) ? Number(valueMap[pid].score) : Number(totals[pid] || 0);
+      };
+
+      rankedPlayers.sort(function(a, b) {
+        return Number(totals[String(b.player_id)] || 0) - Number(totals[String(a.player_id)] || 0);
+      });
+
+      // 2. Sort ALL players by the selected metric (Descending)
       allPlayers.sort(function(a, b) {
-        var ta = totals[String(a.player_id)] || 0;
-        var tb = totals[String(b.player_id)] || 0;
-        return tb - ta;
+        var primary = sortMetric(b, sortKey) - sortMetric(a, sortKey);
+        if (primary) return primary;
+        var totalTiebreak = Number(totals[String(b.player_id)] || 0) - Number(totals[String(a.player_id)] || 0);
+        if (totalTiebreak) return totalTiebreak;
+        return String((a.last_name || "") + " " + (a.first_name || "")).localeCompare(String((b.last_name || "") + " " + (b.first_name || "")));
       });
 
       // 3. Assign League-Wide Ranks
       var rankMap = {};
       var posCounters = {};
 
-      allPlayers.forEach(function(p, index) {
+      rankedPlayers.forEach(function(p, index) {
         var pid = String(p.player_id);
         var pos = p.position || "UNK";
         if (!posCounters[pos]) posCounters[pos] = 0;
@@ -10503,13 +10808,14 @@ renderFA: function() {
 
     var loadWeeksAndRender = function(w) {
       if (w > maxWeek) {
-        var playedWeeks = 0, boom = 0, bust = 0, within = 0, majorBoom = 0, majorBust = 0;
+        var eligibleWeeks = 0, boom = 0, bust = 0, within = 0, majorBoom = 0, majorBust = 0;
         for (var i = 0; i < labels.length; i++) {
           if (!playedArr[i]) continue; // Skip weeks they didn't play
-          playedWeeks++;
           var proj = projected[i] || 0;
           var act = actual[i] || 0;
           var mu = muArr[i];
+          if (!isFinite(proj) || proj <= 0) continue; // Exclude "No Proj" / "Not played" style weeks from within-range evaluation
+          eligibleWeeks++;
           if (proj > 0 && act >= proj * self.cfg.boomPct) {
             if (mu !== null && mu !== undefined && isFinite(mu) && mu < 30) majorBoom++;
             else boom++;
@@ -10519,7 +10825,7 @@ renderFA: function() {
           } else within++;
         }
         if (self.dom.pmBoomBustOverall) {
-          self.dom.pmBoomBustOverall.textContent = playedWeeks ? ("Overall: Boom " + (boom + majorBoom) + (majorBoom ? (" (Major " + majorBoom + ")") : "") + " • Bust " + (bust + majorBust) + (majorBust ? (" (Major " + majorBust + ")") : "") + " • Within " + within) : "Overall: —";
+          self.dom.pmBoomBustOverall.textContent = eligibleWeeks ? ("Overall: Boom " + (boom + majorBoom) + (majorBoom ? (" (Major " + majorBoom + ")") : "") + " • Bust " + (bust + majorBust) + (majorBust ? (" (Major " + majorBust + ")") : "") + " • Within " + within) : "Overall: —";
         }
 
         self.renderModalChart(labels, actual, projected);
@@ -10917,14 +11223,10 @@ renderFA: function() {
       
       var header = document.createElement("div");
       header.className = "p-4 border-b border-gray-800 bg-gray-950 rounded-t-2xl";
-      header.innerHTML = 
+      header.innerHTML =
         '<div class="flex items-center gap-3">' +
-          '<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/30 to-gray-800/30 flex items-center justify-center">' +
-            '<span class="text-accent font-bold text-sm">' + conf.charAt(0) + '</span>' +
-          '</div>' +
           '<div>' +
-            '<div class="text-white font-bold">' + conf + ' ' + divName + '</div>' +
-            '<div class="text-xs text-gray-500 font-mono">Defensive rankings (lower = better)</div>' +
+            '<div class="text-white font-bold">' + divName + '</div>' +
           '</div>' +
         '</div>';
       divCard.appendChild(header);
@@ -11226,14 +11528,7 @@ renderFA: function() {
     }
 
     // Render starters section
-    var startersHeader = document.createElement("div");
-    startersHeader.className = "flex items-center justify-between pb-2 border-b border-gray-800 mb-4";
-    startersHeader.innerHTML = 
-      '<div class="flex items-center gap-2">' +
-        '<div class="w-2 h-2 rounded-full bg-accent"></div>' +
-        '<span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Active Starters</span>' +
-      '</div>' +
-      '<div class="text-[10px] text-gray-500 font-mono">Week ' + week + ' lineup</div>';
+    var startersHeader = self.makeRosterSectionHeader("Active Starters");
     list.appendChild(startersHeader);
 
     var starterItems = [];
@@ -11324,11 +11619,9 @@ renderFA: function() {
       if (!arr || !arr.length) return;
 
       var section = document.createElement("div");
-      section.className = "mb-4";
+      section.className = "roster-position-section";
 
-      var header = document.createElement("div");
-      header.className = "text-[11px] uppercase tracking-wider text-gray-400 font-bold mb-2";
-      header.textContent = positionLabels[slotKey] || slotKey;
+      var header = self.makeRosterPositionHeader(positionLabels[slotKey] || slotKey);
       section.appendChild(header);
 
       var grid = document.createElement("div");
@@ -11344,14 +11637,7 @@ renderFA: function() {
     var bench = allPlayers.filter(function(pid) { return starterIds.indexOf(String(pid)) < 0; });
 
     if (bench.length > 0) {
-      var benchHeader = document.createElement("div");
-      benchHeader.className = "flex items-center justify-between pb-2 border-b border-gray-800 mb-4";
-      benchHeader.innerHTML = 
-        '<div class="flex items-center gap-2">' +
-          '<div class="w-2 h-2 rounded-full bg-gray-500"></div>' +
-          '<span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Bench</span>' +
-          '<span class="text-[10px] text-gray-600 font-mono">(' + bench.length + ' players)</span>' +
-        '</div>';
+      var benchHeader = self.makeRosterSectionHeader("Bench", { muted: true, meta: "(" + bench.length + " players)" });
       list.appendChild(benchHeader);
 
       var benchGrid = document.createElement("div");
@@ -11516,18 +11802,18 @@ renderFA: function() {
       var subtitleHtml = subtitle ? ('<div class="mt-1 text-xs text-gray-500 font-mono">' + subtitle + '</div>') : '';
       var tableTopClass = subtitle ? "mt-3" : "mt-2";
 
-      var headerCells = posList.map(function(p) { return '<th class="text-center px-1 py-1.5 w-[7%] bg-gray-950">' + p + '</th>'; }).join("");
+      var headerCells = posList.map(function(p) { return '<th class="text-center px-1 py-1.5 w-[7%] history-soft-cell">' + p + '</th>'; }).join("");
       
       wrap.innerHTML = 
         '<div class="text-sm font-bold text-white">' + title + '</div>' +
         subtitleHtml +
-        '<div class="' + tableTopClass + ' max-h-[250px] overflow-y-auto border border-gray-800 rounded-lg">' +
-          '<table class="w-full text-[8.5px] table-fixed tabular-nums">' +
-            '<thead class="text-[8.5px] uppercase text-gray-400 sticky top-0 z-10">' +
-              '<tr class="bg-gray-950">' +
-                '<th class="text-left px-2 py-1.5 w-[33%] bg-gray-950">Team</th>' +
+        '<div class="' + tableTopClass + ' max-h-[250px] overflow-y-auto border border-gray-800 rounded-lg history-soft-panel">' +
+          '<table class="w-full text-[9.5px] table-fixed tabular-nums">' +
+            '<thead class="text-[9px] uppercase text-gray-400 sticky top-0 z-10">' +
+              '<tr class="history-soft-cell">' +
+                '<th class="text-left px-2 py-1.5 w-[33%] history-soft-cell">Team</th>' +
                 headerCells +
-                '<th class="text-center px-2 py-1.5 w-[11%] hidden md:table-cell bg-gray-950">TOT</th>' +
+                '<th class="text-center px-2 py-1.5 w-[11%] hidden md:table-cell history-soft-cell">TOT</th>' +
               '</tr>' +
             '</thead>' +
             '<tbody class="divide-y divide-gray-800/50"></tbody>' +
@@ -11551,11 +11837,11 @@ renderFA: function() {
         posList.forEach(function(pos) {
           var val = team.s.posTotals[pos] || 0;
           var color = self.getHeatmapColor(val, selectedS.posTotals[pos], posValues[pos]);
-          html += '<td class="px-0.5 py-1 text-center text-[8.5px] font-mono ' + color.text + '" style="background:' + color.bg + '">' + val.toFixed(0) + '</td>';
+          html += '<td class="px-0.5 py-1 text-center text-[9.5px] font-mono ' + color.text + '" style="background:' + color.bg + '">' + val.toFixed(0) + '</td>';
         });
         
         var totalColor = self.getHeatmapColor(team.s.total || 0, selectedS.total, totalValues, true);
-        html += '<td class="px-2 py-1.5 text-center text-[8.5px] font-mono font-bold ' + totalColor.text + ' hidden md:table-cell" style="background:' + totalColor.bg + '">' + (team.s.total || 0).toFixed(0) + '</td>';
+        html += '<td class="px-2 py-1.5 text-center text-[9.5px] font-mono font-bold ' + totalColor.text + ' hidden md:table-cell" style="background:' + totalColor.bg + '">' + (team.s.total || 0).toFixed(0) + '</td>';
         
         tr.innerHTML = html;
         body.appendChild(tr);
@@ -12067,22 +12353,22 @@ actualStarters: actualStarters,
       return self.buildPlayerCardElement(item, { showSlot: showSlot });
     };
 
+    list.appendChild(self.makeRosterSectionHeader("Best Lineup"));
+
     // Render grouped starters in consistent order
     positionOrder.forEach(function(slotKey) {
       var arr = startersBySlot[String(slotKey).toUpperCase()];
       if (!arr || !arr.length) return;
 
       var section = document.createElement("div");
-      section.className = "mb-4";
+      section.className = "roster-position-section";
 
-      var header = document.createElement("div");
-      header.className = "text-[11px] uppercase tracking-wider text-gray-400 font-bold mb-2";
-      header.textContent = positionLabels[slotKey] || slotKey;
+      var header = self.makeRosterPositionHeader(positionLabels[slotKey] || slotKey);
       section.appendChild(header);
 
       var grid = document.createElement("div");
       grid.className = "ui2k-card-grid";
-      arr.map(makeItem).forEach(function(item) { grid.appendChild(renderCard(item, false)); });
+      arr.map(makeItem).forEach(function(item) { grid.appendChild(renderCard(item, true)); });
 
       section.appendChild(grid);
       list.appendChild(section);
@@ -12095,16 +12381,14 @@ actualStarters: actualStarters,
       if (!arr || !arr.length) return;
 
       var section = document.createElement("div");
-      section.className = "mb-4";
+      section.className = "roster-position-section";
 
-      var header = document.createElement("div");
-      header.className = "text-[11px] uppercase tracking-wider text-gray-400 font-bold mb-2";
-      header.textContent = positionLabels[slotKey] || slotKey;
+      var header = self.makeRosterPositionHeader(positionLabels[slotKey] || slotKey);
       section.appendChild(header);
 
       var grid = document.createElement("div");
       grid.className = "ui2k-card-grid";
-      arr.map(makeItem).forEach(function(item) { grid.appendChild(renderCard(item, false)); });
+      arr.map(makeItem).forEach(function(item) { grid.appendChild(renderCard(item, true)); });
 
       section.appendChild(grid);
       list.appendChild(section);
@@ -12113,9 +12397,7 @@ actualStarters: actualStarters,
     if (data.benchPids && data.benchPids.length) {
       var benchSection = document.createElement("div");
       benchSection.className = "mt-6";
-      var bh = document.createElement("div");
-      bh.className = "text-sm font-semibold text-gray-300 mb-2";
-      bh.textContent = "Bench";
+      var bh = self.makeRosterSectionHeader("Bench", { muted: true, meta: "(" + data.benchPids.length + " players)" });
       benchSection.appendChild(bh);
 
       var bgrid = document.createElement("div");
@@ -12172,7 +12454,7 @@ var fmtPid = function(pid) {
       var proj = data.projById[String(pid)] || 0;
       var mu = data.muById[String(pid)] || 50;
       var fit = data.fitById[String(pid)] || 0;
-      return '<div class="flex items-center justify-between gap-3 bg-gray-950 border border-gray-800 rounded-xl p-3">' +
+      return '<div class="flex items-center justify-between gap-3 history-soft-cell border border-gray-800 rounded-xl p-3">' +
         '<div class="min-w-0">' +
           '<div class="font-bold text-white truncate">' + fmtPid(pid) + '</div>' +
           '<div class="text-[10px] text-gray-500 font-mono">MU ' + Math.round(mu) + ' • FIT ' + Math.round(fit) + '</div>' +
@@ -12185,7 +12467,7 @@ var fmtPid = function(pid) {
     };
 
     box.innerHTML =
-      '<div class="bg-gray-950 border border-gray-800 rounded-2xl p-5">' +
+      '<div class="history-soft-panel border border-gray-800 rounded-2xl p-5">' +
         '<div class="flex items-start justify-between gap-4">' +
           '<div>' +
             '<div class="text-sm font-bold text-white">Totals (weighted picks)</div>' +
@@ -12196,19 +12478,19 @@ var fmtPid = function(pid) {
           '</div>' +
         '</div>' +
         '<div class="grid grid-cols-4 gap-3 mt-4">' +
-          '<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-3">' +
+          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
             '<div class="text-[10px] text-gray-500 font-mono">Avg MU</div>' +
             '<div class="text-lg font-black text-accent">' + data.bestMuAvg.toFixed(1) + '</div>' +
           '</div>' +
-          '<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-3">' +
+          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
             '<div class="text-[10px] text-gray-500 font-mono">Used Proj Score</div>' +
             '<div class="text-lg font-black text-gray-200">' + data.actualProjTotal.toFixed(2) + '</div>' +
           '</div>' +
-          '<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-3">' +
+          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
             '<div class="text-[10px] text-gray-500 font-mono">Used Actual Score</div>' +
             '<div class="text-lg font-black text-gray-200">' + usedActText + '</div>' +
           '</div>' +
-          '<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-3">' +
+          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
             '<div class="text-[10px] text-gray-500 font-mono">Delta (Opt − Used)</div>' +
             '<div class="text-lg font-black ' + (deltaAct === null ? 'text-gray-500' : (deltaAct >= 0 ? 'text-accent' : 'text-red-400')) + '">' +
               (deltaAct === null ? '—' : ((deltaAct >= 0 ? '+' : '') + deltaAct.toFixed(2))) +
@@ -12217,11 +12499,11 @@ var fmtPid = function(pid) {
         '</div>' +
       '</div>' +
       '<div class="mt-4 grid grid-cols-1 gap-4">' +
-        '<div class="bg-gray-950 border border-gray-800 rounded-2xl p-5">' +
+        '<div class="history-soft-panel border border-gray-800 rounded-2xl p-5">' +
           '<div class="text-sm font-bold text-white mb-3">Start</div>' +
           (data.shouldStart && data.shouldStart.length ? data.shouldStart.map(fmtLine).join('') : '<div class="text-gray-500 text-sm">No changes (best lineup matches starters).</div>') +
         '</div>' +
-        '<div class="bg-gray-950 border border-gray-800 rounded-2xl p-5">' +
+        '<div class="history-soft-panel border border-gray-800 rounded-2xl p-5">' +
           '<div class="text-sm font-bold text-white mb-3">Sit</div>' +
           (data.shouldSit && data.shouldSit.length ? data.shouldSit.map(fmtLine).join('') : '<div class="text-gray-500 text-sm">None.</div>') +
         '</div>' +
