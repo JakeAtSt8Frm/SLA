@@ -671,10 +671,14 @@
 
       #mobileNavBackdrop {
         display: none;
+        pointer-events: none;
+        top: 3.5rem;
+        z-index: 60;
       }
 
       body.nav-open #mobileNavBackdrop {
-        display: block;
+        display: block !important;
+        pointer-events: auto;
       }
 
       /* Player cards full width on mobile */
@@ -940,6 +944,26 @@
         font-size: 0.78rem;
         letter-spacing: 0.1em;
       }
+      .optimal-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.6rem !important;
+      }
+      .optimal-summary-card {
+        min-width: 0;
+        padding: 0.75rem !important;
+      }
+      .optimal-summary-label {
+        font-size: 0.68rem !important;
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+      }
+      .optimal-summary-value {
+        display: block;
+        max-width: 100%;
+        font-size: clamp(1rem, 7vw, 1.55rem) !important;
+        line-height: 1.05;
+        overflow-wrap: anywhere;
+      }
     }
     
     /* Extra small screens */
@@ -977,6 +1001,91 @@
       }
       .pc-mini-chip {
         min-width: 58px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .ui2k-card-grid-roster {
+        gap: 0.55rem;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .player-card {
+        min-height: 92px !important;
+        border-radius: 12px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-shell {
+        grid-template-columns: minmax(82px, 28%) minmax(0, 1fr);
+        min-height: 92px;
+        gap: 7px;
+        padding: 6px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-hero {
+        min-height: 80px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-hero-content {
+        padding: 6px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-slot,
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-age {
+        font-size: 7px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-team-pos {
+        font-size: 8px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-name {
+        font-size: 14px;
+        line-height: 0.98;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-value {
+        font-size: 8px;
+        padding: 1px 5px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-main {
+        padding: 6px;
+        gap: 5px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-rank-grid {
+        display: none;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-context-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-rates {
+        gap: 6px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-rate {
+        min-width: 22px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-label,
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-rate-label,
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-score-label {
+        font-size: 7px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-rate-value,
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-mini-chip {
+        font-size: 8px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-pill-row {
+        gap: 5px;
+        padding-bottom: 5px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-pill {
+        font-size: 7px;
+        padding: 1px 5px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-score-row {
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 5px;
+        padding: 5px;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-mini-stack {
+        flex-direction: column;
+        gap: 3px;
+        justify-content: center;
+      }
+      :is(#viewTeams #rosterList, #viewHistory #historyRosterList) .pc-score-value {
+        font-size: 15px;
       }
     }
 
@@ -1098,6 +1207,18 @@
 
     /* Ensure content sits above bg effects */
     body.ui2k > * { position: relative; z-index: 1; }
+    body.ui2k > #mobileNavBackdrop {
+      position: fixed;
+      inset: 0;
+      top: 3.5rem;
+      display: none;
+      pointer-events: none;
+      z-index: 60;
+    }
+    body.ui2k.nav-open > #mobileNavBackdrop {
+      display: block !important;
+      pointer-events: auto;
+    }
 
     /* Header */
     header.ui2k-header{
@@ -1305,6 +1426,9 @@
         width: 38px !important;
         height: 38px !important;
         min-width: 38px !important;
+      }
+      header.ui2k-header {
+        z-index: 80;
       }
       .ui2k-season-chip {
         gap: 4px;
@@ -1672,9 +1796,19 @@
         width: auto;
         max-width: 100%;
       }
-      #teamTabs {
-        transform: translateX(-18px);
+      #viewTeams > .page-header-center,
+      #viewHistory > .page-header-center {
+        width: 100%;
+        min-height: 160px;
+        justify-content: flex-start;
+        transform: none;
       }
+      #viewTeams > .page-header-center > .page-week-pill,
+      #viewHistory > .page-header-center > .page-header-controls {
+        min-height: 52px;
+        align-items: center;
+      }
+      #teamTabs,
       #historyTeamTabs {
         width: fit-content;
         max-width: 100%;
@@ -1690,6 +1824,8 @@
       gap: 0.5rem;
       padding: 0.375rem 0.75rem;
       border-radius: 9px;
+      position: relative;
+      z-index: 5;
     }
     .page-week-pill #currentWeekLabel {
       display: inline-flex;
@@ -1715,6 +1851,9 @@
       text-align-last: left;
       -webkit-text-fill-color: var(--text-primary) !important;
       box-shadow: none !important;
+      pointer-events: auto;
+      position: relative;
+      z-index: 1;
     }
     .page-week-pill > span:first-child {
       line-height: 1;
@@ -9155,18 +9294,35 @@ getPlayerDeltaRank: function(pid) {
     // History controls - auto-load on week change
     if (this.dom.historyWeekSelect) {
       this.buildHistoryWeekSelect();
+      this.dom.historyWeekSelect.onpointerdown = function() {
+        if (document.body.classList.contains("nav-open")) self.setMobileNavOpen(false);
+      };
+      this.dom.historyWeekSelect.onfocus = function() {
+        if (document.body.classList.contains("nav-open")) self.setMobileNavOpen(false);
+      };
       this.dom.historyWeekSelect.onchange = function() {
         self.ui.historySelectedWeek = Number(self.dom.historyWeekSelect.value);
         self.loadHistoricalWeek();
       };
     }
 
+    if (this.dom.seasonSelect) {
+      this.dom.seasonSelect.onpointerdown = function() {
+        if (document.body.classList.contains("nav-open")) self.setMobileNavOpen(false);
+      };
+      this.dom.seasonSelect.onfocus = function() {
+        if (document.body.classList.contains("nav-open")) self.setMobileNavOpen(false);
+      };
+    }
+
     if (this.dom.mobileNavToggle) {
-      this.dom.mobileNavToggle.onclick = function() {
+      this.dom.mobileNavToggle.onclick = function(evt) {
+        if (evt) evt.stopPropagation();
         self.setMobileNavOpen(!document.body.classList.contains("nav-open"));
       };
     }
     if (this.dom.mobileNavBackdrop) {
+      this.dom.mobileNavBackdrop.onpointerdown = function() { self.setMobileNavOpen(false); };
       this.dom.mobileNavBackdrop.onclick = function() { self.setMobileNavOpen(false); };
     }
 
@@ -10429,7 +10585,7 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
       });
 
       activeBench.forEach(function(p) {
-        benchGrid.appendChild(renderPlayerCard(p, false));
+        benchGrid.appendChild(renderPlayerCard(p, true));
       });
       benchSection.appendChild(benchGrid);
       list.appendChild(benchSection);
@@ -10453,7 +10609,7 @@ var benchPlayers = Object.keys(benchByPid).map(function(pid) {
       var irGrid = document.createElement("div");
       irGrid.className = "ui2k-card-grid-roster opacity-60";
       irPlayers.forEach(function(p) {
-        irGrid.appendChild(renderPlayerCard(p, false));
+        irGrid.appendChild(renderPlayerCard(p, true));
       });
       irSection.appendChild(irGrid);
       list.appendChild(irSection);
@@ -12303,7 +12459,7 @@ renderFA: function() {
       section.appendChild(header);
 
       var grid = document.createElement("div");
-      grid.className = "ui2k-card-grid";
+      grid.className = "ui2k-card-grid-roster";
       arr.forEach(function(item) { grid.appendChild(renderHistoryCard(item, true)); });
       section.appendChild(grid);
 
@@ -12319,7 +12475,7 @@ renderFA: function() {
       list.appendChild(benchHeader);
 
       var benchGrid = document.createElement("div");
-      benchGrid.className = "ui2k-card-grid";
+      benchGrid.className = "ui2k-card-grid-roster";
 
       bench.forEach(function(pid) {
         if (!pid || pid === "0") return;
@@ -13045,7 +13201,7 @@ actualStarters: actualStarters,
       section.appendChild(header);
 
       var grid = document.createElement("div");
-      grid.className = "ui2k-card-grid";
+      grid.className = "ui2k-card-grid-roster";
       arr.map(makeItem).forEach(function(item) { grid.appendChild(renderCard(item, true)); });
 
       section.appendChild(grid);
@@ -13065,7 +13221,7 @@ actualStarters: actualStarters,
       section.appendChild(header);
 
       var grid = document.createElement("div");
-      grid.className = "ui2k-card-grid";
+      grid.className = "ui2k-card-grid-roster";
       arr.map(makeItem).forEach(function(item) { grid.appendChild(renderCard(item, true)); });
 
       section.appendChild(grid);
@@ -13079,7 +13235,7 @@ actualStarters: actualStarters,
       benchSection.appendChild(bh);
 
       var bgrid = document.createElement("div");
-      bgrid.className = "ui2k-card-grid";
+      bgrid.className = "ui2k-card-grid-roster";
       data.benchPids
         .map(function(pid){ return { pid: pid, slot: "BN", isStarter: false }; })
         .map(makeItem)
@@ -13155,22 +13311,22 @@ var fmtPid = function(pid) {
             '<div class="text-xs text-gray-500 font-mono">Optimal Actual Score</div>' +
           '</div>' +
         '</div>' +
-        '<div class="grid grid-cols-4 gap-3 mt-4">' +
-          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
-            '<div class="text-[10px] text-gray-500 font-mono">Avg MU</div>' +
-            '<div class="text-lg font-black text-accent">' + data.bestMuAvg.toFixed(1) + '</div>' +
+        '<div class="optimal-summary-grid grid grid-cols-4 gap-3 mt-4">' +
+          '<div class="optimal-summary-card history-soft-cell border border-gray-800 rounded-xl p-3">' +
+            '<div class="optimal-summary-label text-[10px] text-gray-500 font-mono">Avg MU</div>' +
+            '<div class="optimal-summary-value text-lg font-black text-accent">' + data.bestMuAvg.toFixed(1) + '</div>' +
           '</div>' +
-          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
-            '<div class="text-[10px] text-gray-500 font-mono">Used Proj Score</div>' +
-            '<div class="text-lg font-black text-gray-200">' + data.actualProjTotal.toFixed(2) + '</div>' +
+          '<div class="optimal-summary-card history-soft-cell border border-gray-800 rounded-xl p-3">' +
+            '<div class="optimal-summary-label text-[10px] text-gray-500 font-mono">Used Proj Score</div>' +
+            '<div class="optimal-summary-value text-lg font-black text-gray-200">' + data.actualProjTotal.toFixed(2) + '</div>' +
           '</div>' +
-          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
-            '<div class="text-[10px] text-gray-500 font-mono">Used Actual Score</div>' +
-            '<div class="text-lg font-black text-gray-200">' + usedActText + '</div>' +
+          '<div class="optimal-summary-card history-soft-cell border border-gray-800 rounded-xl p-3">' +
+            '<div class="optimal-summary-label text-[10px] text-gray-500 font-mono">Used Actual Score</div>' +
+            '<div class="optimal-summary-value text-lg font-black text-gray-200">' + usedActText + '</div>' +
           '</div>' +
-          '<div class="history-soft-cell border border-gray-800 rounded-xl p-3">' +
-            '<div class="text-[10px] text-gray-500 font-mono">Delta (Opt − Used)</div>' +
-            '<div class="text-lg font-black ' + (deltaAct === null ? 'text-gray-500' : (deltaAct >= 0 ? 'text-accent' : 'text-red-400')) + '">' +
+          '<div class="optimal-summary-card history-soft-cell border border-gray-800 rounded-xl p-3">' +
+            '<div class="optimal-summary-label text-[10px] text-gray-500 font-mono">Delta (Opt − Used)</div>' +
+            '<div class="optimal-summary-value text-lg font-black ' + (deltaAct === null ? 'text-gray-500' : (deltaAct >= 0 ? 'text-accent' : 'text-red-400')) + '">' +
               (deltaAct === null ? '—' : ((deltaAct >= 0 ? '+' : '') + deltaAct.toFixed(2))) +
             '</div>' +
           '</div>' +
